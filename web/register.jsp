@@ -78,10 +78,13 @@
             <div class="title">Registreren</div>
             <form action="register" method="post">
                 <input name="Username" type="text"  placeholder="Gebruikersnaam" data-icon="U" value="${param.Username}">
-                <input type="text" name="email" value="${param.email}">
+                <input type="text" name="email" placeholder="Email" data-icon="x" value="${param.email}">
                 <input type="password" name="password" placeholder="Wachtwoord" data-icon="x"/>
                 <input type="password" name="password2" placeholder="Herhaal wachtwoord" data-icon="x"/>
-                <label><input type="checkbox" id="checkme" name="checked" value="${param.Firstname}"/> Ik ben artiest</label>
+                <span style="padding-top:19px;">
+                     <input type="checkbox" id="checkme" name="checked" style="width: 16px;height: 16px;margin-top: 15px"/>
+                </span> 
+                <span style="float:right; width: 184px;padding-left:10px;">Ik ben artiest</span>
                 <input class="topradius" type="text" id="Firstname" name="Firstname" placeholder="Voornaam" value="${param.Firstname}">
                 <input type="text" name="Lastname" id="Lastname" placeholder="Achternaam" value="${param.Lastname}">
                 <input class="hidden" type="text" name="ContactNr" id="ContactNr" placeholder="Contactnr" value="${param.ContactNr}">
