@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="MyVibe" name="Model.User" table="Users">
+    <id name="userId" type="java.lang.Integer">
+      <column name="UserID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="username" type="string">
+      <column length="65535" name="Username" not-null="true"/>
+    </property>
+    <property name="userPassword" type="string">
+      <column length="32" name="UserPassword" not-null="true"/>
+    </property>
+    <property name="userRegDate" type="date">
+      <column length="10" name="UserRegDate" not-null="true"/>
+    </property>
+    <property name="userEmail" type="string">
+      <column length="50" name="UserEmail" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="admins" table="Admins">
+      <key>
+        <column name="UserID" not-null="true"/>
+      </key>
+      <one-to-many class="Model.Admin"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="artists" table="Artists">
+      <key>
+        <column name="UserID" not-null="true"/>
+      </key>
+      <one-to-many class="Model.Artist"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="listeners" table="Listeners">
+      <key>
+        <column name="UserID" not-null="true"/>
+      </key>
+      <one-to-many class="Model.Listener"/>
+    </set>
+  </class>
+</hibernate-mapping>

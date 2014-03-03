@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="MyVibe" name="Model.Track" table="Tracks">
+    <id name="trackId" type="java.lang.Integer">
+      <column name="TrackID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Model.Album" fetch="select" name="album">
+      <column name="AlbumID" not-null="true"/>
+    </many-to-one>
+    <property name="trackName" type="int">
+      <column name="TrackName" not-null="true"/>
+    </property>
+    <property name="trackLength" type="time">
+      <column length="8" name="TrackLength" not-null="true"/>
+    </property>
+    <property name="trackGenre" type="string">
+      <column length="65535" name="TrackGenre" not-null="true"/>
+    </property>
+    <property name="trackPrice" type="java.lang.Double">
+      <column name="TrackPrice" precision="22" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="orderDetails" table="OrderDetails">
+      <key>
+        <column name="TrackID" not-null="true"/>
+      </key>
+      <one-to-many class="Model.OrderDetail"/>
+    </set>
+  </class>
+</hibernate-mapping>
