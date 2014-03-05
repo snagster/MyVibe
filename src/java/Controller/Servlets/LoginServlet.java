@@ -50,15 +50,15 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("listener/store.jsp?success=login");
                 }else{
                     request.setAttribute("error", "U gaf een foutief passwoord op. Probeer nogmaals."); 
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getRequestDispatcher("/login.jsp").forward(request, response);
                 }
             }else{
                 request.setAttribute("error", "Er bestaat geen gebruiker met die username."); 
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
         }else{
             request.setAttribute("error", "Beide velden moeten worden ingevuld."); 
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
         
     }
