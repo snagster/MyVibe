@@ -47,8 +47,7 @@ public class UserHelper {
         criteria.add(Restrictions.eq("username", username));
         User user = (User) criteria.uniqueResult();
         trans.commit();
-        return user; 
-        
+        return user;  
     }
     
     public String hashPassword(String password){
@@ -74,5 +73,24 @@ public class UserHelper {
             Logger.getLogger(ListenerHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hexString.toString();
+    }
+    
+    public void updatePassword(String username, String email, String password) throws Exception{
+        if(this.getUserByUsername(username)!=null){
+            User u = this.getUserByUsername(username);
+            if(u.getUserEmail().equals(email)){
+                Transaction trans = session.beginTransaction();
+                User userToUpdate = (User)session.get(User.class,u.getUserId());
+                userToUpdate.setUserPassword(this.hashPassword(password));
+                session.update(userToUpdate); 
+                trans.commit();
+                session.close();
+            }else{
+                throw new Exception("Via het emailadres verifiëren wij u identiteit. U gaf een foutief "
+                        + "emailadres op, wat inhoud dat wij u passwoord niet zullen veranderen."); 
+            }
+        }else{
+            throw new Exception("Er bestaan geen gebruiker met die username. U are suspicious"); 
+        }
     }
 }

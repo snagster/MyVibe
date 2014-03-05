@@ -47,13 +47,13 @@
                 </div>
            <% } %>
            <section class="login">
-                <div class="title">Registreren</div>
+                <div class="title">Sign in!</div>
                     <form action="login" method="post">
                         <input name="username" type="text"  placeholder="Gebruikersnaam" data-icon="U" value="${param.username}">
                         <input type="password" name="password" placeholder="Password" data-icon="x">
                         
                         <div class="aanmeldopties">
-                            <div class="col"><a href="index.xhtml" title="I forgot my password">Have you forgotten your password?</a></div>
+                            <div class="col"><a href="passwordrecovery.jsp" title="I forgot my password">Have you forgotten your password?</a></div>
                         </div>
                     <input class="registreren" type="submit" value="sign in!"/>
                     </form>
