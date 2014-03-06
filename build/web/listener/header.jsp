@@ -39,14 +39,26 @@
                 <% } %>
                 
             </ul>
-            <form class="nav navbar-nav navbar-form navbar-right" style="width:250px;" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search"/>
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                </div><!-- /input-group -->
-            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#"> My Settings</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        
+            
+                <form class="navbar-form navbar-right" style="width:250px;" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search"/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form> 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
