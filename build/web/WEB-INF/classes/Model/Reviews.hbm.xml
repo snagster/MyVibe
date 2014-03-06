@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0 -->
+<!-- Generated 6-mrt-2014 11:07:43 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
   <class catalog="MyVibe" name="Model.Review" table="Reviews">
     <id name="reviewId" type="java.lang.Integer">
       <column name="ReviewID"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="Model.Listener" fetch="select" name="listeners">
+    <many-to-one class="Model.Listener" fetch="select" name="listener">
       <column name="ListenerID" not-null="true"/>
     </many-to-one>
-    <many-to-one class="Model.Album" fetch="select" name="albums">
+    <many-to-one class="Model.Album" fetch="select" name="album">
       <column name="AlbumID" not-null="true"/>
     </many-to-one>
   </class>

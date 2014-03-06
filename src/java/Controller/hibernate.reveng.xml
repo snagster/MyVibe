@@ -2,16 +2,16 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="MyVibe"/>
-  <table-filter match-name="Contracts"/>
+  <table-filter match-name="Albums"/>
+  <table-filter match-name="Genres"/>
   <table-filter match-name="Orders"/>
   <table-filter match-name="Artists"/>
-  <table-filter match-name="Tracks"/>
   <table-filter match-name="Listeners"/>
-  <table-filter match-name="Admins"/>
-  <table-filter match-name="Users"/>
-  <table-filter match-name="Genres"/>
-  <table-filter match-name="OrderDetails"/>
-  <table-filter match-name="Albums"/>
-  <table-filter match-name="GenreAlbum"/>
   <table-filter match-name="Reviews"/>
+  <table-filter match-name="Contracts"/>
+  <table-filter match-name="Tracks"/>
+  <table-filter match-name="OrderDetails"/>
+  <table-filter match-name="Users"/>
+  <table-filter match-name="GenreAlbum"/>
+  <table-filter match-name="Admins"/>
 </hibernate-reverse-engineering>

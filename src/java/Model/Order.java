@@ -1,5 +1,5 @@
 package Model;
-// Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0
+// Generated 6-mrt-2014 11:07:43 by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -22,6 +22,7 @@ public class Order  implements java.io.Serializable {
     public Order (Listener listener) {
         this.listener = listener;
     }
+    
     public Order(Listener listener, Set<OrderDetail> orderDetails) {
        this.listener = listener;
        this.orderDetails = orderDetails;
