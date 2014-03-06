@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0 -->
+<!-- Generated 6-mrt-2014 11:07:43 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-  <class catalog="MyVibe" name="Model.Listener" table="Listeners">
-    <id name="listenerId" type="java.lang.Integer">
-      <column name="ListenerID"/>
-      <generator class="identity"/>
-    </id>
-    <many-to-one class="Model.User" fetch="select" name="user">
-      <column name="UserID" not-null="true"/>
-    </many-to-one>
-    <property name="listenerFullName" type="string">
-      <column length="50" name="ListenerFullName" not-null="true"/>
-    </property>
-    <property name="credits" type="int">
-      <column name="Credits" not-null="true"/>
-    </property>
-    <property name="listenerBirthDate" type="date">
-      <column length="10" name="ListenerBirthDate" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="reviews" table="Reviews">
-      <key>
-        <column name="ListenerID" not-null="true"/>
-      </key>
-      <one-to-many class="Model.Review"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="orders" table="Orders">
-      <key>
-        <column name="ListenerID" not-null="true"/>
-      </key>
-      <one-to-many class="Model.Order"/>
-    </set>
-  </class>
+  <joined-subclass name="Model.Listener" extends="Model.User" table="Listeners">
+        <key column="UserID"/>
+        <property name="listenerFullName" type="string">
+            <column length="50" name="ListenerFullName" not-null="true"/>
+        </property>
+        <property name="credits" type="int">
+              <column name="Credits" not-null="true"/>
+        </property>
+        <property name="listenerBirthDate" type="date">
+              <column length="10" name="ListenerBirthDate" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="reviews" table="Reviews">
+              <key>
+                <column name="ListenerID" not-null="true"/>
+              </key>
+              <one-to-many class="Model.Review"/>
+       </set>
+       <set fetch="select" inverse="true" lazy="true" name="orders" table="Orders">
+              <key>
+                <column name="ListenerID" not-null="true"/>
+              </key>
+              <one-to-many class="Model.Order"/>
+       </set>
+    </joined-subclass>
 </hibernate-mapping>

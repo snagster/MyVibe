@@ -26,24 +26,24 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Laura
  */
-public class ArtistHelper {
-    Session session = null;
+public class ArtistHelper extends UserHelper{
+    
     
     public ArtistHelper(){
-        this.session = NewHibernateUtil.getSessionFactory().openSession();
+        super(); 
         
     }
     
     public void createArtist(String ArtistName, String pw, String username, String email, Date sinceDate, String ContactNr) throws Exception {
-       Transaction trans=session.beginTransaction();
+       Transaction trans=super.getSession().beginTransaction();
         try {
             if(artistExists(username) ==0){
-                User newUser = new User( username,  pw, Calendar.getInstance().getTime(),  email);
-                session.save(newUser);
-                session.flush();
+                //User newUser = new User( username,  pw, Calendar.getInstance().getTime(),  email);
+                //session.save(newUser);
+                //session.flush();
                 // op dit moment is er een user gemaakt, nu moet er ook nog een listener gemaakt worden met een link naar 
                 // de betrokken user
-                Artist newArtist = new Artist(newUser,ArtistName, Calendar.getInstance().getTime(), ContactNr, 0, sinceDate);
+                Artist newArtist = new Artist(username, pw, Calendar.getInstance().getTime(),email,ArtistName, Calendar.getInstance().getTime(), ContactNr, 0, sinceDate);
                 session.save(newArtist);
                 trans.commit();
                 session.flush();
