@@ -1,5 +1,5 @@
 package Model;
-// Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0
+// Generated 6-mrt-2014 11:07:43 by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -26,8 +26,7 @@ public class Album  implements java.io.Serializable {
 
     public Album() {
     }
-
-	
+    
     public Album(Artist artist, String albumName, Date albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted) {
         this.artist = artist;
         this.albumName = albumName;
@@ -37,6 +36,7 @@ public class Album  implements java.io.Serializable {
         this.albumVerified = albumVerified;
         this.albumRestricted = albumRestricted;
     }
+    
     public Album(Artist artist, String albumName, Date albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted, Set<Review> reviews, Set<GenreAlbum> genreAlbums, Set<Track> tracks) {
        this.artist = artist;
        this.albumName = albumName;
@@ -57,6 +57,7 @@ public class Album  implements java.io.Serializable {
     public void setAlbumId(Integer albumId) {
         this.albumId = albumId;
     }
+    
     public Artist getArtist() {
         return this.artist;
     }
@@ -64,6 +65,7 @@ public class Album  implements java.io.Serializable {
     public void setArtist(Artist artist) {
         this.artist = artist;
     }
+    
     public String getAlbumName() {
         return this.albumName;
     }
@@ -71,6 +73,7 @@ public class Album  implements java.io.Serializable {
     public void setAlbumName(String albumName) {
         this.albumName = albumName;
     }
+    
     public Date getAlbumYear() {
         return this.albumYear;
     }
@@ -85,6 +88,7 @@ public class Album  implements java.io.Serializable {
     public void setAlbumThumbnail(byte[] albumThumbnail) {
         this.albumThumbnail = albumThumbnail;
     }
+    
     public double getAlbumPrice() {
         return this.albumPrice;
     }
@@ -92,6 +96,7 @@ public class Album  implements java.io.Serializable {
     public void setAlbumPrice(double albumPrice) {
         this.albumPrice = albumPrice;
     }
+    
     public boolean isAlbumVerified() {
         return this.albumVerified;
     }
@@ -99,6 +104,7 @@ public class Album  implements java.io.Serializable {
     public void setAlbumVerified(boolean albumVerified) {
         this.albumVerified = albumVerified;
     }
+    
     public boolean isAlbumRestricted() {
         return this.albumRestricted;
     }
@@ -111,7 +117,7 @@ public class Album  implements java.io.Serializable {
     }
     
     public void setReviews(Set<Review> reviews) {
-        this.reviews = reviews; 
+        this.reviews = reviews;
     }
     public Set<GenreAlbum> getGenreAlbums() {
         return this.genreAlbums;

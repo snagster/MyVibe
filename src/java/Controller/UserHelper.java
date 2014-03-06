@@ -28,6 +28,10 @@ public class UserHelper {
         
     }
     
+    public Session getSession(){
+        return this.session; 
+    }
+    
     public int userExists(String username){
         //in deze functie wordt geen transactie meer gemaakt omdat deze in bovenstaande functie wordt opgeroepen
         //waar wel al een sessie bestaat

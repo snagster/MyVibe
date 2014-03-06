@@ -39,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        if(!request.getParameter("checked").equals("True")){
+        if(request.getParameter("checked")!= null && !request.getParameter("checked").equals("True")){
             if(request.getParameter("ContactNr") != null && request.getParameter("Firstname") != null
                     && request.getParameter("Birthdate") != null && request.getParameter("Username") != null
                     && request.getParameter("email") != null && request.getParameter("password") != null
