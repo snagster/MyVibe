@@ -44,7 +44,7 @@
                     <a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-cog"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="../mysettings"> My Settings</a></li>
+                        <li><a href="mysettings"> My Settings</a></li>
                         <li><a href="../Logout">Logout</a></li>
                     </ul>
                 </li>

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <h:head>
-        <title>MyVibe - Store </title>
+        <title>MyVibe - My Settings </title>
         <link href="../css/bootstrap.min.css" rel="stylesheet"/>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -24,18 +24,32 @@
                     <table class="table table-hover">
                         <tr>
                             <td>Name</td>
-                            <td></td>
+                            <td><%= request.getAttribute( "name" ) %></td>
+                            <td><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
                         </tr>
                         <tr>
                             <td>Username</td>
-                            <td></td>
+                            <td><%= session.getAttribute("user") %></td>
+                            <td><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td></td>
+                            <td><%= request.getAttribute("email") %></td>
+                            <td><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
                         </tr>
                         <tr>
                             <td>Password</td>
+                            <td></td>
+                            <td><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Birthday</td>
+                            <td><%= request.getAttribute("birthdate") %></td>
+                            <td><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td>Registered Since</td>
+                            <td><%= request.getAttribute("registered") %></td>
                             <td></td>
                         </tr>
                     </table>

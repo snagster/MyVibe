@@ -39,7 +39,11 @@ public class mySettingsServlet extends HttpServlet {
         User u = helper.getUserByUsername(session.getAttribute("user").toString()); 
         if(u instanceof Listener){
             Listener listener = (Listener) u; 
-            request.setAttribute("", u);
+            request.setAttribute("name", listener.getListenerFullName());
+            request.setAttribute("email", listener.getUserEmail());
+            request.setAttribute("birthdate", listener.getListenerBirthDate());
+            request.setAttribute("registered", listener.getUserRegDate()); 
+            request.getRequestDispatcher("mySettings.jsp").forward(request, response);
         }
     }
 

@@ -51,7 +51,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>mySettingsServlet</servlet-name>
-        <url-pattern>/mysettings</url-pattern>
+        <url-pattern>/listener/mysettings</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
