@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +14,9 @@
         <link href="css/bootstrap.min.css" rel="stylesheet"/>	
         <link rel="stylesheet" type="text/css" href="css/style_reg.css" />
         <link rel="stylesheet" href="jquery/jquery-ui.css"/>
+
         <jsp:useBean id="Track" type="java.util.ArrayList" scope="session" />
+
         <script type="text/javascript">
             // Global variable to track current file name.
             var currentFile = "";
@@ -49,14 +52,14 @@
                 }
             }
 
-            function randomSong()
+            function changeSong(String)
             {
                 // Check for audio element support.
                 if (window.HTMLAudioElement)
                 {
                     try
                     {
-                        document.getElementById("audiofile").setAttribute("value", "<%=tracks.get(i).getTrackName()%>.mp3");
+                        document.getElementById("audiofile").setAttribute("value", "<%=tracks.getTrackName()%>.mp3");
 
                     }
                     catch (e) {
@@ -68,6 +71,7 @@
             }
 
         </script>
+
     </head>
     <body>
         <div class="container" >
@@ -98,15 +102,10 @@
             </nav>
             <div id="audioplayer">                
                 <p>
-                    <input type="text" id="audiofile" size="80" value="<%=tracks.get(i).getTrackName()%>.mp3" />
+                    <input type="text" id="audiofile" size="80" value="default.mp3" />
                 </p>
-                <audio controls id="myaudio"
-                       data-info-album-art="<%=tracks.get(i).getTrackImage()%>"
-                       data-info-album-title="<%=tracks.get(i).getTrackId()%>"
-                       data-info-title="<%=tracks.get(i).getTrackName()%>"
-                       data-info-artist="<%=tracks.get(i).getTrackArtist()%>"
-                       data-info-album="<%=tracks.get(i).getAlbum()%>"
-                       data-info-genre=<%=tracks.get(i).getTrackGenre()%>"
+                <audio controls id="myaudio">
+                    HTML5 audio not supported
                 </audio>
             </div>
             <div class="jumbotron" style="margin-top:-20px;height:550px;">
@@ -118,7 +117,9 @@
                 <% }%>
                 <img src="img/MyVibe1.png" style="float:left; padding-right:75px;"/>
                 <div>
-                    
+                    <%
+                        Track[] arr = {"apple", "orange", "cherry"};
+                    %>
                     <% for (int i = 0; i < tracks.size(); i += 1) {%>
                     <div class="media">
                         <a class="pull-left" href="#">
@@ -126,7 +127,9 @@
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading"><%=tracks.get(i).getTrackName()%></h4>
-                            <%=tracks.get(i).getTrackDescription()%>
+                            <button id="changeSong" onclick="changeSong(<%=tracks.get(i).getTrackName()%>.mp3);">
+                                Play
+                            </button>
                         </div>
                     </div>
                     <% }%>
