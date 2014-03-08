@@ -1,5 +1,5 @@
 package Model;
-// Generated 27-feb-2014 12:19:32 by Hibernate Tools 3.6.0
+// Generated 6-mrt-2014 11:07:43 by Hibernate Tools 3.6.0
 
 
 
@@ -10,15 +10,15 @@ public class Review  implements java.io.Serializable {
 
 
      private Integer reviewId;
-     private Listener listeners;
-     private Album albums;
+     private Listener listener;
+     private Album album;
 
     public Review() {
     }
 
-    public Review(Listener listeners, Album albums) {
-       this.listeners = listeners;
-       this.albums = albums;
+    public Review(Listener listener, Album albums) {
+       this.listener = listener;
+       this.album = album;
     }
    
     public Integer getReviewId() {
@@ -28,19 +28,19 @@ public class Review  implements java.io.Serializable {
     public void setReviewId(Integer reviewId) {
         this.reviewId = reviewId;
     }
-    public Listener getListeners() {
-        return this.listeners;
+    public Listener getListener() {
+        return this.listener;
     }
     
-    public void setListeners(Listener listeners) {
-        this.listeners = listeners;
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
-    public Album getAlbums() {
-        return this.albums;
+    public Album getAlbum() {
+        return this.album;
     }
     
-    public void setAlbums(Album albums) {
-        this.albums = albums;
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 
 
