@@ -9,7 +9,7 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
-    <property name="hibernate.connection.url">jdbc:mysql://snagster.no-ip.biz:3306/MyVibe</property>
+    <property name="hibernate.connection.url">jdbc:mysql://192.168.10.100:3306/MyVibe</property>
     <mapping resource="Model/Reviews.hbm.xml"/>
     <mapping resource="Model/Listeners.hbm.xml"/>
     <mapping resource="Model/GenreAlbum.hbm.xml"/>

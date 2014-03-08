@@ -25,6 +25,10 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>Controller.Servlets.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>mySettingsServlet</servlet-name>
+        <servlet-class>Controller.Servlets.mySettingsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -44,6 +48,10 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mySettingsServlet</servlet-name>
+        <url-pattern>/mysettings</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
