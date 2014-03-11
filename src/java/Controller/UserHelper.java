@@ -117,4 +117,16 @@ public class UserHelper {
         }
         session.close();
     }
+    
+    public void delete(int userId){
+        User userToDelete = (User) session.get(User.class, userId);
+        Transaction trans = session.beginTransaction();
+        session.delete(userToDelete); 
+        if(!trans.wasCommitted()){
+            trans.commit();
+        }
+        session.close();
+    
+    
+    }
 }

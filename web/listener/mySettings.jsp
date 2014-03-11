@@ -95,6 +95,9 @@
                             <td style="text-align: center;"><a href="#" style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm" role="button">Get more credits</a></td>
                         </tr>
                     </table>
+                            
+                <button type="button" class="btn btn-danger col-sm-offset-10 col-sm-2" data-toggle="modal" data-target="#removeAccountModal">Remove this account</button>
+                <jsp:include page="modals/removeAccountModal.jsp"/>
               </div>
             </div>
          </div>
