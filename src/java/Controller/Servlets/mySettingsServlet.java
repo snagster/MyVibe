@@ -43,6 +43,7 @@ public class mySettingsServlet extends HttpServlet {
             request.setAttribute("email", listener.getUserEmail());
             request.setAttribute("birthdate", listener.getListenerBirthDate());
             request.setAttribute("registered", listener.getUserRegDate()); 
+            request.setAttribute("credits", listener.getCredits()); 
             request.getRequestDispatcher("mySettings.jsp").forward(request, response);
         }
     }
