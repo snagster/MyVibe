@@ -65,7 +65,7 @@ public class ListenerHelper extends UserHelper {
             if(parameter.equals("fullname")){
                 listenerToUpdate.setListenerFullName(value);
             }else if(parameter.equals("birthdate")){
-                listenerToUpdate.setListenerBirthDate(new SimpleDateFormat("dd/MM/yyyy").parse(value));
+                listenerToUpdate.setListenerBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse(value));
             }
             session.update(listenerToUpdate); 
             if(!trans.wasCommitted()){

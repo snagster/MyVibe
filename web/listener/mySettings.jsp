@@ -38,13 +38,17 @@
                             <td>Name</td>
                             <td><%= request.getAttribute( "name" ) %></td>
                             <td style="text-align: center;">
-                                <a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                                <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUserFullnameModal">
+                                    Edit your name
+                                </button>
+                                <jsp:include page="modals/updateUserFullnameModal.jsp"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td><%= session.getAttribute("user") %></td>
                             <td style="text-align: center;">
-                                <button class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUsernameModal">
+                                <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUsernameModal">
                                     Edit Username
                                 </button>
                                 <jsp:include page="modals/updateUsernameModal.jsp"/>
@@ -53,17 +57,32 @@
                         <tr>
                             <td>Email</td>
                             <td><%= request.getAttribute("email") %></td>
-                            <td style="text-align: center;"><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                            <td style="text-align: center;">
+                                <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editEmailModal">
+                                    Edit email
+                                </button>
+                                <jsp:include page="modals/updateEmailModal.jsp"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Password</td>
                             <td></td>
-                            <td style="text-align: center;"><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                            <td style="text-align: center;">
+                                <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editPasswordModal">
+                                    Edit password
+                                </button>
+                                <jsp:include page="modals/updatePasswordModal.jsp"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Birthday</td>
                             <td><%= request.getAttribute("birthdate") %></td>
-                            <td style="text-align: center;"><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                            <td style="text-align: center;">
+                                <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editBirthdateModal">
+                                    Edit birthdate
+                                </button>
+                                <jsp:include page="modals/updateBirthdateModal.jsp"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Registered Since</td>
@@ -73,7 +92,7 @@
                         <tr>
                             <td>Amount of credits</td>
                             <td><%= request.getAttribute("credits") %> credits</td>
-                            <td style="text-align: center;"><a href="#" class="btn btn-primary btn-lg btn-sm" role="button">Get more credits</a></td>
+                            <td style="text-align: center;"><a href="#" style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm" role="button">Get more credits</a></td>
                         </tr>
                     </table>
               </div>

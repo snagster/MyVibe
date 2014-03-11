@@ -63,8 +63,8 @@ public class mySettingsServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         ListenerHelper helper = new ListenerHelper();
-        if(request.getParameter("username") != null && !request.getParameter("username").equals("")){
-            int userId = helper.getUserByUsername(session.getAttribute("user").toString()).getUserId();  
+        int userId = helper.getUserByUsername(session.getAttribute("user").toString()).getUserId(); 
+        if(request.getParameter("username") != null && !request.getParameter("username").equals("")){ 
             try{
                 helper.update(userId, "username", request.getParameter("username"));
                 request.setAttribute("success", "The username is successfully updated"); 
@@ -73,7 +73,60 @@ public class mySettingsServlet extends HttpServlet {
             catch(Exception e){
                 request.setAttribute("error", e.getMessage());
             }
-            
+        }else if(request.getParameter("firstname") != null && !request.getParameter("firstname").equals("")
+                && request.getParameter("name") != null && !request.getParameter("name").equals("")){
+            String name = request.getParameter("firstname") + " " + request.getParameter("name"); 
+            try{
+                helper.update(userId, "fullname", name); 
+                request.setAttribute("success", "Your name is successfully updated"); 
+            }catch(Exception e){
+                request.setAttribute("error", e.getMessage());
+            }
+        }else if(request.getParameter("birthdate")!= null && !request.getParameter("birthdate").equals("")){
+            try{
+                helper.update(userId, "birthdate", request.getParameter("birthdate").toString()); 
+                request.setAttribute("success", "Your birthdate is successfully updated"); 
+            }catch(Exception e){
+                request.setAttribute("error", e.getMessage());
+            }
+        }else if(request.getParameter("email")!= null && !request.getParameter("email").equals("")){
+            try{
+                helper.update(userId, "email", request.getParameter("email")); 
+                request.setAttribute("success", "Your email is successfully updated"); 
+            }catch(Exception e){
+                request.setAttribute("error", e.getMessage());
+            }
+        }
+        UserHelper userhelper = new UserHelper();
+        User u = userhelper.getUserByUsername(session.getAttribute("user").toString()); 
+        if(request.getParameter("oldPW")!= null && !request.getParameter("oldPW").equals("") 
+                && request.getParameter("newPW")!= null && !request.getParameter("newPW").equals("")
+                && request.getParameter("newPWconfirmed")!= null && !request.getParameter("newPWconfirmed").equals(
+                   request.getParameter(""))){
+            if(request.getParameter("newPWconfirmed").equals(request.getParameter("newPW"))){
+                if(u.getUserPassword().equals(userhelper.hashPassword(request.getParameter("oldPW")))){
+                    try{
+                        userhelper.updatePassword(u.getUsername(), u.getUserEmail(), request.getParameter("newPW"));
+                        request.setAttribute("success", "Your password is successfully updated");
+                    }catch(Exception e){
+                       request.setAttribute("error", e.getMessage()); 
+                    }
+                }else{
+                    request.setAttribute("error", "Er trede een fout op in de identificatie: u gaf niet het"
+                            + " juiste passwoord op." );
+                }
+            }else{
+                request.setAttribute("error", "Je moet tweemaal hetzelfde passwoord opgeven" );
+            }
+        }
+        
+        if(u instanceof Listener){
+            Listener listener = (Listener) u; 
+            request.setAttribute("name", listener.getListenerFullName());
+            request.setAttribute("email", listener.getUserEmail());
+            request.setAttribute("birthdate", listener.getListenerBirthDate());
+            request.setAttribute("registered", listener.getUserRegDate()); 
+            request.setAttribute("credits", listener.getCredits()); 
         }
         request.getRequestDispatcher("mySettings.jsp").forward(request, response);
     }

@@ -19,8 +19,8 @@
                 If you enter a new username now, you will need to use this to log in!
             </div>
             <div class="form-group">
-                <label for="inputUser" class="col-sm-2 control-label">New username</label>
-                <div class="col-sm-10">
+                <label for="inputUser" class="col-sm-3 control-label">New username</label>
+                <div class="col-sm-9">
                     <input type="text" name="username" class="form-control" id="inputUser" placeholder="username">
                 </div>
             </div>

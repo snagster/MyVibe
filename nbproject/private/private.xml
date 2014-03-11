@@ -4,11 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/Laura/MyVibe/web/listener/modals/updateUsernameModal.jsp</file>
+            <file>file:/Users/Laura/MyVibe/web/listener/modals/updateEmailModal.jsp</file>
             <file>file:/Users/Laura/MyVibe/src/java/Controller/ListenerHelper.java</file>
             <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/mySettingsServlet.java</file>
-            <file>file:/Users/Laura/MyVibe/web/listener/mySettings.jsp</file>
-            <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/LoginServlet.java</file>
-            <file>file:/Users/Laura/MyVibe/src/java/Controller/UserHelper.java</file>
+            <file>file:/Users/Laura/MyVibe/web/listener/modals/updateBirthdateModal.jsp</file>
+            <file>file:/Users/Laura/MyVibe/web/listener/modals/updateUserFullnameModal.jsp</file>
         </group>
     </open-files>
 </project-private>
