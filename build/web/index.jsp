@@ -48,6 +48,11 @@
                         <%= request.getAttribute("error")%>
                     </div>
                 <% } %>
+                <% if (request.getAttribute("success") != null) { %>
+                    <div class="alert alert-success">
+                        <%= request.getAttribute("success")%>
+                    </div>
+                <% } %>
                 <img src="img/MyVibe1.png" style="float:left; padding-right:75px;"/>
                 <h1>Follow the music!</h1>
                 <p>Hier komt nog een heel inspirerend tekstje dat de nietgeregistreerde gebruiker rechtstreeks
