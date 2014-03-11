@@ -6,6 +6,7 @@
 
 package Controller.Servlets;
 
+import Controller.ListenerHelper;
 import Controller.UserHelper;
 import Model.Listener;
 import Model.User;
@@ -59,7 +60,22 @@ public class mySettingsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        ListenerHelper helper = new ListenerHelper();
+        if(request.getParameter("username") != null && !request.getParameter("username").equals("")){
+            int userId = helper.getUserByUsername(session.getAttribute("user").toString()).getUserId();  
+            try{
+                helper.update(userId, "username", request.getParameter("username"));
+                request.setAttribute("success", "The username is successfully updated"); 
+                session.setAttribute("user", request.getParameter("username"));
+            }
+            catch(Exception e){
+                request.setAttribute("error", e.getMessage());
+            }
+            
+        }
+        request.getRequestDispatcher("mySettings.jsp").forward(request, response);
     }
 
 }

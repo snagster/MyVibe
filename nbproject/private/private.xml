@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/Laura/MyVibe/web/listener/modals/updateUsernameModal.jsp</file>
+            <file>file:/Users/Laura/MyVibe/src/java/Controller/ListenerHelper.java</file>
+            <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/mySettingsServlet.java</file>
+            <file>file:/Users/Laura/MyVibe/web/listener/mySettings.jsp</file>
+            <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/LoginServlet.java</file>
+            <file>file:/Users/Laura/MyVibe/src/java/Controller/UserHelper.java</file>
+        </group>
     </open-files>
 </project-private>

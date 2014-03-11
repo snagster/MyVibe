@@ -99,21 +99,22 @@ public class UserHelper {
     }
     
     public void update(int userId, String parameter, String value) throws Exception{
-        Transaction trans = session.beginTransaction();
+        
         User userToUpdate = (User) session.get(User.class, userId);
         if(parameter.equals("username")){
             if(this.getUserByUsername(value) == null){
                 userToUpdate.setUsername(value);
             }else{
-                trans.rollback();
-                session.close();
                 throw new Exception("Deze username is al in gebruik, kies een andere!"); 
             }
         }else if(parameter.equals("email")){
             userToUpdate.setUserEmail(value);
         }
+        Transaction trans = session.beginTransaction();
         session.update(userToUpdate); 
-        trans.commit();
+        if(!trans.wasCommitted()){
+            trans.commit();
+        }
         session.close();
     }
 }

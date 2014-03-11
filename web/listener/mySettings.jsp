@@ -18,6 +18,18 @@
          <div class="container">
             <jsp:include page="header.jsp"/>
             <h1>My settings</h1>
+             <% if (request.getAttribute("error") != null) { %>
+                <div class="alert alert-danger">
+                    <strong>Oh snap, something's wrong, maybe the following error could help you out?<br /></strong>
+                    <%= request.getAttribute("error")%>
+                </div>
+           <% } %>
+           <% if (request.getAttribute("success")!= null) { %>
+                    <div class="alert alert-success">
+                        <strong>Well done!</strong>
+                        <%= request.getAttribute("success")%>
+                    </div>
+                <% } %>
             <div class="panel panel-default">
                 <div class="panel-heading">General Account Settings</div>
                 <div class="panel-body">
@@ -25,12 +37,18 @@
                         <tr>
                             <td>Name</td>
                             <td><%= request.getAttribute( "name" ) %></td>
-                            <td style="text-align: center;"><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                            <td style="text-align: center;">
+                                <a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
                         </tr>
                         <tr>
                             <td>Username</td>
                             <td><%= session.getAttribute("user") %></td>
-                            <td style="text-align: center;"><a href="#" class="glyphicon glyphicon-edit">Edit</a></td>
+                            <td style="text-align: center;">
+                                <button class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUsernameModal">
+                                    Edit Username
+                                </button>
+                                <jsp:include page="modals/updateUsernameModal.jsp"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Email</td>
@@ -55,7 +73,7 @@
                         <tr>
                             <td>Amount of credits</td>
                             <td><%= request.getAttribute("credits") %> credits</td>
-                            <td style="text-align: center;"><a href="#" class="btn btn-primary btn-lg active btn-sm" role="button">Get more credits</a></td>
+                            <td style="text-align: center;"><a href="#" class="btn btn-primary btn-lg btn-sm" role="button">Get more credits</a></td>
                         </tr>
                     </table>
               </div>

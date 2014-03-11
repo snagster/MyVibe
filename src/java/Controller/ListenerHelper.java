@@ -68,7 +68,9 @@ public class ListenerHelper extends UserHelper {
                 listenerToUpdate.setListenerBirthDate(new SimpleDateFormat("dd/MM/yyyy").parse(value));
             }
             session.update(listenerToUpdate); 
-            trans.commit();
+            if(!trans.wasCommitted()){
+                trans.commit();
+            }
             session.close();
         }
     }
