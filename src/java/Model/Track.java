@@ -23,7 +23,6 @@ public class Track  implements java.io.Serializable {
     public Track() {
     }
 
-	
     public Track(Album album, int trackName, Date trackLength, String trackGenre) {
         this.album = album;
         this.trackName = trackName;
