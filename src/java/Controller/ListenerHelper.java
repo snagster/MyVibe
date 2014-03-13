@@ -10,6 +10,7 @@ import Model.Listener;
 import Model.User;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
@@ -54,6 +55,23 @@ public class ListenerHelper extends UserHelper {
         }
     }
     
-    
-    
+    @Override
+    public void update(int userId, String parameter, String value) throws Exception{
+        if(parameter.equals("email") | parameter.equals("username")){
+            super.update(userId, parameter, value);
+        }else {
+            Transaction trans = session.beginTransaction();
+            Listener listenerToUpdate = (Listener) session.get(Listener.class, userId);
+            if(parameter.equals("fullname")){
+                listenerToUpdate.setListenerFullName(value);
+            }else if(parameter.equals("birthdate")){
+                listenerToUpdate.setListenerBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse(value));
+            }
+            session.update(listenerToUpdate); 
+            if(!trans.wasCommitted()){
+                trans.commit();
+            }
+            session.close();
+        }
+    }
 }

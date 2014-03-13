@@ -97,4 +97,36 @@ public class UserHelper {
             throw new Exception("Er bestaan geen gebruiker met die username. U are suspicious"); 
         }
     }
+    
+    public void update(int userId, String parameter, String value) throws Exception{
+        
+        User userToUpdate = (User) session.get(User.class, userId);
+        if(parameter.equals("username")){
+            if(this.getUserByUsername(value) == null){
+                userToUpdate.setUsername(value);
+            }else{
+                throw new Exception("Deze username is al in gebruik, kies een andere!"); 
+            }
+        }else if(parameter.equals("email")){
+            userToUpdate.setUserEmail(value);
+        }
+        Transaction trans = session.beginTransaction();
+        session.update(userToUpdate); 
+        if(!trans.wasCommitted()){
+            trans.commit();
+        }
+        session.close();
+    }
+    
+    public void delete(int userId){
+        User userToDelete = (User) session.get(User.class, userId);
+        Transaction trans = session.beginTransaction();
+        session.delete(userToDelete); 
+        if(!trans.wasCommitted()){
+            trans.commit();
+        }
+        session.close();
+    
+    
+    }
 }

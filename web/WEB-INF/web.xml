@@ -21,6 +21,18 @@
         <servlet-name>PasswordRecoveryServlet</servlet-name>
         <servlet-class>Controller.Servlets.PasswordRecoveryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Controller.Servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mySettingsServlet</servlet-name>
+        <servlet-class>Controller.Servlets.mySettingsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>removeAccount</servlet-name>
+        <servlet-class>Controller.Servlets.RemoveAccountServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -36,6 +48,18 @@
     <servlet-mapping>
         <servlet-name>PasswordRecoveryServlet</servlet-name>
         <url-pattern>/PasswordRecovery</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mySettingsServlet</servlet-name>
+        <url-pattern>/listener/mysettings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>removeAccount</servlet-name>
+        <url-pattern>/removemyaccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
