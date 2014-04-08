@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
     <head>
         <title>MyVibe - Tracks</title>
@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="css/style_reg.css" />
         <link rel="stylesheet" href="jquery/jquery-ui.css"/>
 
-        <jsp:useBean id="Track" type="java.util.ArrayList" scope="session" />
+        <jsp:useBean id="Track" type="Model.Track" scope="session" />
 
         <script type="text/javascript">
             // Global variable to track current file name.
@@ -59,7 +59,7 @@
                 {
                     try
                     {
-                        document.getElementById("audiofile").setAttribute("value", "<%=tracks.getTrackName()%>.mp3");
+                        document.getElementById("audiofile").setAttribute("value", ".mp3");
 
                     }
                     catch (e) {
@@ -109,7 +109,7 @@
                 </audio>
             </div>
             <div class="jumbotron" style="margin-top:-20px;height:550px;">
-                <% if (request.getAttribute("error") != null) {%>
+                <%if (request.getAttribute("error") != null) {%>
                 <div class="alert alert-danger">
                     <strong>Oh snap, something's wrong, maybe the following error could help you out?<br /></strong>
                         <%= request.getAttribute("error")%>
@@ -118,21 +118,8 @@
                 <img src="img/MyVibe1.png" style="float:left; padding-right:75px;"/>
                 <div>
                     <%
-                        Track[] arr = {"apple", "orange", "cherry"};
+
                     %>
-                    <% for (int i = 0; i < tracks.size(); i += 1) {%>
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="<%=tracks.get(i).getTrackImage()%>" alt="<%=tracks.get(i).getTrackName()%>">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading"><%=tracks.get(i).getTrackName()%></h4>
-                            <button id="changeSong" onclick="changeSong(<%=tracks.get(i).getTrackName()%>.mp3);">
-                                Play
-                            </button>
-                        </div>
-                    </div>
-                    <% }%>
                 </div>
 
             </div>  
