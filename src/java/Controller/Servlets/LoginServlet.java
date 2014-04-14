@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                 if(user.getUserPassword().equals(helper.hashPassword(request.getParameter("password")))){
                     HttpSession session = request.getSession();
                     session.setAttribute("user", request.getParameter("username"));
-                    response.sendRedirect("listener/store.jsp?success=login");
+                    response.sendRedirect("artist/artisthome.jsp?success=login");
                 }else{
                     request.setAttribute("error", "U gaf een foutief passwoord op. Probeer nogmaals."); 
                     request.getRequestDispatcher("/login.jsp").forward(request, response);

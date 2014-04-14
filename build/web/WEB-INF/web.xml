@@ -33,6 +33,10 @@
         <servlet-name>removeAccount</servlet-name>
         <servlet-class>Controller.Servlets.RemoveAccountServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>Controller.Servlets.UploadServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -61,6 +65,10 @@
         <servlet-name>removeAccount</servlet-name>
         <url-pattern>/removemyaccount</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/artist/UploadServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -69,4 +77,10 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <!-- param-value te veranderen naar path server waar muziek opgeslagen moet worden-->
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>C:\Program Files\Apache Software Foundation\Apache Tomcat 7.0.41\webapps\data</param-value>
+    </context-param>
 </web-app>
