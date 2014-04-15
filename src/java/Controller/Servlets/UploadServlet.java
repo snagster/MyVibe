@@ -20,9 +20,8 @@ import javax.servlet.http.Part;
 public class UploadServlet extends HttpServlet {
     private final static Logger LOGGER = 
             Logger.getLogger(UploadServlet.class.getCanonicalName());
-   
-      public void doPost(HttpServletRequest request, 
-               HttpServletResponse response)
+   @Override
+      public void doPost(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, java.io.IOException {
     response.setContentType("text/html;charset=UTF-8");
 

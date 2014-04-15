@@ -89,7 +89,7 @@ public class RegisterServlet extends HttpServlet {
                         helper.createListener(request.getParameter("email"), helper.hashPassword(request.getParameter("password")), 
                             request.getParameter("Username"), request.getParameter("Firstname") + " " + 
                             request.getParameter("Lastname"), new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("Birthdate")));
-
+                        
                         HttpSession session = request.getSession();
                         session.setAttribute("user", request.getParameter("Username"));
                         response.sendRedirect("listener/store.jsp?success=True");
