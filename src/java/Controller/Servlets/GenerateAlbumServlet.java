@@ -48,14 +48,14 @@ public class GenerateAlbumServlet extends HttpServlet {
         ArtistHelper artisthelper = new ArtistHelper();
         AlbumHelper albumhelper = new AlbumHelper();
         String albumnaam = request.getParameter("albumnaam");
+        double albumprijs = Double.parseDouble(request.getParameter("albumprijs"));
         
-        
-        User user = new User();
+
         Artist artist = new Artist();
         HttpSession session = request.getSession();
-        user = userhelper.getUserByUsername(session.getAttribute("user").toString());
-        int userId = user.getUserId();
-        System.out.println(artist.getArtistName());
+        artist = (Artist) session.getAttribute("Artist");
+        System.out.println(artist.getArtistRegDate());
+        
         
         if(request.getParameter("albumnaam")==null){
             request.setAttribute("errorAlbumName", "Albumnaam moet ingevuld zijn.");
@@ -71,7 +71,11 @@ public class GenerateAlbumServlet extends HttpServlet {
                 if(albumhelper.albumExists(albumnaam)==1){
                     request.setAttribute("errorAlbumName", "Er bestaat reeds een album met die naam.");
                 } else {
-                    /*albumhelper.createAlbum(null, albumnaam, releasedate, currentyear);*/
+                    try{
+                    albumhelper.createAlbum(artist,albumnaam,releasedate,albumprijs);
+                    } catch(Exception e) {
+                        request.setAttribute("error", "Server-fout bij het aanmaken van album. Probeer nogmaals.");
+                    }
                 }
             } else {
                request.setAttribute("error", "De ingegeven waarden lijken nog fouten te bevatten. Kijk alle velden na.");

@@ -18,6 +18,10 @@
         <servlet-class>Controller.Servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ArtistPanelServlet</servlet-name>
+        <servlet-class>Controller.Servlets.ArtistPanelServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>PasswordRecoveryServlet</servlet-name>
         <servlet-class>Controller.Servlets.PasswordRecoveryServlet</servlet-class>
     </servlet>
@@ -41,6 +45,10 @@
         <servlet-name>GenerateAlbumServlet</servlet-name>
         <servlet-class>Controller.Servlets.GenerateAlbumServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>ArtistPanelServlet</servlet-name>
+        <url-pattern>/artist/artistpanel</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>

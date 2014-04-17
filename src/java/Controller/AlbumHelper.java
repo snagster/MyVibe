@@ -8,25 +8,11 @@ package Controller;
 
 import Model.Album;
 import Model.Artist;
-import Model.Track;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.io.PrintWriter;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
-import Model.User;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Date;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -51,7 +37,7 @@ public class AlbumHelper {
     public int albumExists(String albumname){
         int found=0;
         Criteria criteria = session.createCriteria(Album.class);
-        criteria.add(Restrictions.eq("albumname",albumname));
+        criteria.add(Restrictions.eq("albumName",albumname));
         Album album = (Album) criteria.uniqueResult();
         if(album!=null){
             found=1;
@@ -62,7 +48,7 @@ public class AlbumHelper {
     public Album getAlbumByAlbumname(String albumname){
         Transaction trans = session.beginTransaction();
         Criteria criteria = session.createCriteria(Album.class);
-        criteria.add(Restrictions.eq("albumname",albumname));
+        criteria.add(Restrictions.eq("albumName",albumname));
         Album album = (Album) criteria.uniqueResult();
         trans.commit();
         return album;
@@ -84,11 +70,14 @@ public class AlbumHelper {
         /*Date d = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(AlbumYear);
-        int currentYear = c.get(Calendar.YEAR);*/
+        int releaseYear = c.get(Calendar.YEAR);*/
 
         try{
             if(albumExists(AlbumName)==0){
-                Album newAlbum = new Album(artist, AlbumName, AlbumYear, null, AlbumPrice, false, false);
+                
+                System.out.println(artist.getArtistName()+ " " + AlbumName + " " + AlbumYear + " " + AlbumPrice);
+                Album newAlbum = new Album(artist,AlbumName,AlbumYear,null,AlbumPrice,false,false);
+                System.out.println("OK");
                 session.save(newAlbum);
                 trans.commit();
                 session.flush();

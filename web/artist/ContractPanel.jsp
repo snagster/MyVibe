@@ -1,6 +1,6 @@
 <%-- 
-    Document   : artisthome
-    Created on : Apr 14, 2014, 12:12:09 PM
+    Document   : ContractPanel
+    Created on : Apr 17, 2014, 2:24:00 PM
     Author     : Daan
 --%>
 
@@ -9,12 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../css/bootstrap.min.css" rel="stylesheet"/>
-        <title>MyVibe - Artist</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <div class="container">
-            <jsp:include page="header.jsp"/>   
+            <jsp:include page="header.jsp"/>
         </div>
     </body>
 </html>

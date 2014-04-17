@@ -133,10 +133,6 @@ public class Album  implements java.io.Serializable {
     public void setTracks(Set<Track> tracks) {
         this.tracks = tracks;
     }
-
-
-
-
 }
 
 
