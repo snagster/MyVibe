@@ -85,6 +85,10 @@
         <servlet-name>GenerateAlbumServlet</servlet-name>
         <url-pattern>/artist/GenerateAlbumServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mySettingsServlet</servlet-name>
+        <url-pattern>/artist/mysettings</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

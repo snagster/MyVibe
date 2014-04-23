@@ -8,6 +8,7 @@ package Controller.Servlets;
 
 import Controller.ListenerHelper;
 import Controller.UserHelper;
+import Model.Artist;
 import Model.Listener;
 import Model.User;
 import java.io.IOException;
@@ -46,6 +47,9 @@ public class mySettingsServlet extends HttpServlet {
             request.setAttribute("registered", listener.getUserRegDate()); 
             request.setAttribute("credits", listener.getCredits()); 
             request.getRequestDispatcher("mySettings.jsp").forward(request, response);
+        }
+        if (u instanceof Artist){
+            request.getRequestDispatcher("mySettings.jsp").forward(request, response); 
         }
     }
 
