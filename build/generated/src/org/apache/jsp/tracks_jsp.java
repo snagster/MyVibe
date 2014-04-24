@@ -168,11 +168,8 @@ if (request.getAttribute("error") != null) {
       out.write("\r\n");
       out.write("                <img src=\"img/MyVibe1.png\" style=\"float:left; padding-right:75px;\"/>\r\n");
       out.write("                <div>\r\n");
-      out.write("                    ");
-
-
-                    
-      out.write("\r\n");
+      out.write(" \r\n");
+      out.write("                    \r\n");
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("            </div>  \r\n");

@@ -30,10 +30,12 @@ public class TracksServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
     {
-        Album album = new Album();
+        AlbumHelper albumhelper = new AlbumHelper();
+        Album album = getAlbum();
         TracksHelper helper = new TracksHelper(); 
         List tracks = new ArrayList();
         tracks.addAll(helper.getTracksFromAlbum(album));
-        
+        req.setAttribute("tracks", tracks);
+        req.getRequestDispatcher("tracks.jsp").forward(req, resp);
     }
 }
