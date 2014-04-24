@@ -52,14 +52,15 @@
         </script>
     </head>
     <body>
-        <% if (request.getAttribute("error") != null) { %>
+        
+        <div class="container">
+            <jsp:include page="header.jsp"/>
+            <% if (request.getAttribute("error") != null) { %>
             <div class="alert alert-danger">
                 <strong>Oh snap, something's wrong, maybe the following error could help you out?<br /></strong>
                 <%= request.getAttribute("error")%>
             </div>
                 <% } %>
-        <div class="container">
-            <jsp:include page="header.jsp"/>
             <div class="inputform">
             <div class="formheader">
             <h1>Creëer een album</h1>

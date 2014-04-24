@@ -34,16 +34,22 @@ public class GenerateAlbumServlet extends HttpServlet {
             Logger.getLogger(UploadServlet.class.getCanonicalName());
     
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         req.getRequestDispatcher("/login.jsp").forward(req, resp);
+    }
+    
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
         int currentyear = Calendar.getInstance().get(Calendar.YEAR);
         
-        Calendar calendar = Calendar.getInstance();
+        /*Calendar calendar = Calendar.getInstance();
         calendar.clear();
         calendar.set(Calendar.YEAR, Integer.parseInt(request.getParameter("albumjaar")));
-        Date releasedate = calendar.getTime();
+        Date releasedate = calendar.getTime();*/
+        int releasedate = Integer.parseInt(request.getParameter("albumjaar")); 
         UserHelper userhelper = new UserHelper();
         ArtistHelper artisthelper = new ArtistHelper();
         AlbumHelper albumhelper = new AlbumHelper();
@@ -74,7 +80,7 @@ public class GenerateAlbumServlet extends HttpServlet {
                     try{
                     albumhelper.createAlbum(artist,albumnaam,releasedate,albumprijs);
                     } catch(Exception e) {
-                        request.setAttribute("error", "Server-fout bij het aanmaken van album. Probeer nogmaals.");
+                        request.setAttribute("error", e.getMessage());
                     }
                 }
             } else {
@@ -82,5 +88,7 @@ public class GenerateAlbumServlet extends HttpServlet {
             }
             /*session.setAttribute("user", request.getParameter("username"));*/
         }
+        
+        request.getRequestDispatcher("upload.jsp").forward(request, response);
     }
 }
