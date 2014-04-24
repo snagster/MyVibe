@@ -15,7 +15,7 @@ public class Album  implements java.io.Serializable {
      private Integer albumId;
      private Artist artist;
      private String albumName;
-     private Date albumYear;
+     private int albumYear;
      private byte[] albumThumbnail;
      private double albumPrice;
      private boolean albumVerified;
@@ -27,7 +27,7 @@ public class Album  implements java.io.Serializable {
     public Album() {
     }
     
-    public Album(Artist artist, String albumName, Date albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted) {
+    public Album(Artist artist, String albumName, int albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted) {
         this.artist = artist;
         this.albumName = albumName;
         this.albumYear = albumYear;
@@ -37,7 +37,7 @@ public class Album  implements java.io.Serializable {
         this.albumRestricted = albumRestricted;
     }
     
-    public Album(Artist artist, String albumName, Date albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted, Set<Review> reviews, Set<GenreAlbum> genreAlbums, Set<Track> tracks) {
+    public Album(Artist artist, String albumName, int albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted, Set<Review> reviews, Set<GenreAlbum> genreAlbums, Set<Track> tracks) {
        this.artist = artist;
        this.albumName = albumName;
        this.albumYear = albumYear;
@@ -74,11 +74,11 @@ public class Album  implements java.io.Serializable {
         this.albumName = albumName;
     }
     
-    public Date getAlbumYear() {
+    public int getAlbumYear() {
         return this.albumYear;
     }
     
-    public void setAlbumYear(Date albumYear) {
+    public void setAlbumYear(int albumYear) {
         this.albumYear = albumYear;
     }
     public byte[] getAlbumThumbnail() {

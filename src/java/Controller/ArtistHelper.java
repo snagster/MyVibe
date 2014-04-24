@@ -11,6 +11,7 @@ import Model.Listener;
 import Model.User;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -54,6 +55,26 @@ public class ArtistHelper extends UserHelper{
             //throw new Exception("Probleem met de databank, de gebruiker kon niet worden aangemaakt");
             if(trans!=null) trans.rollback();
             throw e; 
+        }
+    }
+    
+     @Override
+    public void update(int userId, String parameter, String value) throws Exception{
+        if(parameter.equals("email") | parameter.equals("username")){
+            super.update(userId, parameter, value);
+        }else {
+            Transaction trans = session.beginTransaction();
+            Artist artistToUpdate = (Artist) session.get(Artist.class, userId);
+            if(parameter.equals("name")){
+                artistToUpdate.setArtistName(value);
+            }else if(parameter.equals("sincedate")){
+                artistToUpdate.setSinceDate(new SimpleDateFormat("yyyy-MM-dd").parse(value));
+            }
+            session.update(artistToUpdate); 
+            if(!trans.wasCommitted()){
+                trans.commit();
+            }
+            session.close();
         }
     }
     

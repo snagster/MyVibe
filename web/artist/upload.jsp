@@ -12,6 +12,9 @@
         <title>Upload track</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet"/>
         <link href="artistcss.css" rel="stylesheet"/>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         <script>
             function validateForm(){
                 var stop=false;
@@ -49,14 +52,15 @@
         </script>
     </head>
     <body>
-        <% if (request.getAttribute("error") != null) { %>
+        
+        <div class="container">
+            <jsp:include page="header.jsp"/>
+            <% if (request.getAttribute("error") != null) { %>
             <div class="alert alert-danger">
                 <strong>Oh snap, something's wrong, maybe the following error could help you out?<br /></strong>
                 <%= request.getAttribute("error")%>
             </div>
                 <% } %>
-        <div class="container">
-            <jsp:include page="header.jsp"/>
             <div class="inputform">
             <div class="formheader">
             <h1>Creëer een album</h1>

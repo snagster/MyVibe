@@ -13,11 +13,11 @@
     <property name="albumName" type="string">
       <column length="65535" name="AlbumName" not-null="true"/>
     </property>
-    <property name="albumYear" type="date">
+    <property name="albumYear" type="java.lang.Integer">
       <column length="0" name="AlbumYear" not-null="true"/>
     </property>
     <property name="albumThumbnail" type="binary">
-      <column name="AlbumThumbnail" not-null="true"/>
+      <column name="AlbumThumbnail" not-null="false"/>
     </property>
     <property name="albumPrice" type="double">
       <column name="AlbumPrice" not-null="true" precision="22" scale="0"/>

@@ -64,7 +64,7 @@ public class AlbumHelper {
         session.close();
     }
     
-    public void createAlbum(Artist artist, String AlbumName, Date AlbumYear, double AlbumPrice) throws Exception{
+    public void createAlbum(Artist artist, String AlbumName, int AlbumYear, double AlbumPrice) throws Exception{
         Transaction trans=session.beginTransaction();
         
         /*Date d = new Date();
@@ -79,13 +79,17 @@ public class AlbumHelper {
                 Album newAlbum = new Album(artist,AlbumName,AlbumYear,null,AlbumPrice,false,false);
                 System.out.println("OK");
                 session.save(newAlbum);
-                trans.commit();
+                if(!trans.wasCommitted()){
+                    trans.commit();
+                }
                 session.flush();
             } else {
                 throw new Exception("Er bestaat al een album met deze albumnaam");
             }
         } catch (Exception e){
-            if(trans!=null) trans.rollback();
+            if(trans!=null) {
+                trans.rollback();
+            }
             throw e;
         }
         
