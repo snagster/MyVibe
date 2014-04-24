@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 14, 2014, 4:25:44 PM
+    Author     : Daan
+*/
+  
+.inputform input[type=text], input[type=number]{
+    background: white;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #DDD inset;
+    color: #666;
+    outline: none;
+    height:25px;
+    width: 275px;
+    margin-top:5px;
+    margin-bottom:5px;
+    float:right;
+}
+
+.inputform input[type=submit]{
+    padding: .5em 1em;
+    border: 1px solid #DDD;
+    background-color: #E6E6E6;
+    border-radius: 2px;
+    margin-left: 15px;
+    width: 150px;
+}
+
+.inputform input[type=submit]:hover{
+    background-color: #D3D3D3;
+}
+
+
+.inputform label{
+    margin-top:10px;
+    margin-bottom:10px;
+    line-height: 15px;
+}
+
+.inputform{
+    width: 800px;
+    border:1px solid #D5D5D5;
+    padding:15px;
+    padding-right:350px;
+    border-radius:4px;
+    margin-bottom:20px;
+}
+
+.formheader{
+    width:700px;
+}
+
+.startbutton{
+    border-top:1px solid #D5D5D5;
+    width: 800px;
+    margin-top: 10px;
+    padding-top: 15px;
+    margin-left: -16px;
+}

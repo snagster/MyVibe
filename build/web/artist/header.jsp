@@ -9,15 +9,15 @@
    <div class="container-fluid">
    <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" style="margin-top: -10px;" href="#"><img src="../img/MyVibe1.png" alt="Brand" height="42" width="42"/></a>
+            <a class="navbar-brand" style="margin-top: -10px;" href="artisthome.jsp"><img src="../img/MyVibe1.png" alt="Brand" height="42" width="42"/></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <% if (request.getServletPath().equals("/listener/store.jsp")) { %>
-                    <li class="active"><a href="#">Store</a></li>
+                <% if (request.getServletPath().equals("/artist/upload.jsp")) { %>
+                    <li class="active"><a href="upload.jsp">Upload</a></li>
                 <% } else { %>
-                    <li><a href="#">Store</a></li> 
+                    <li><a href="upload.jsp">Upload</a></li> 
                 <% } %>
                 
                 <% if (request.getServletPath().equals("/listener/bibliotheek.jsp")) { %>
@@ -32,10 +32,10 @@
                     <li><a href="#">Mijn Reviews</a></li> 
                 <% } %>
                 
-                <% if (request.getServletPath().equals("/listener/credits.jsp")) { %>
-                    <li class="active"><a href="#">Credits</a></li>
+                <% if (request.getServletPath().equals("/artist/ContractPanel.jsp")) { %>
+                    <li class="active"><a href="ContractPanel.jsp">Contracten</a></li>
                 <% } else { %>
-                    <li><a href="#">Credits</a></li> 
+                    <li><a href="ContractPanel.jsp">Contracten</a></li> 
                 <% } %>
                 
             </ul>

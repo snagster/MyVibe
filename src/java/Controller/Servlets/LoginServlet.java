@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Controller.Servlets;
 
 import Controller.UserHelper;
+import Model.Admin;
+import Model.Artist;
+import Model.Listener;
 import Model.User;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -26,19 +24,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }
-
     
-
-    
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,12 +33,35 @@ public class LoginServlet extends HttpServlet {
                 request.getParameter("username") != "" && request.getParameter("password") != ""){
             //Check if username exists
             UserHelper helper = new UserHelper();
+            
+            
             if(helper.userExists(request.getParameter("username")) == 1){
                 User user = helper.getUserByUsername(request.getParameter("username"));
                 if(user.getUserPassword().equals(helper.hashPassword(request.getParameter("password")))){
                     HttpSession session = request.getSession();
                     session.setAttribute("user", request.getParameter("username"));
+                    
+                    if(user instanceof Artist){
+                    Artist artist = new Artist();
+                    artist = (Artist) user;
+                    session.setAttribute("Artist", artist);
+                    request.setAttribute("ArtistName", artist.getArtistName());
+                    response.sendRedirect("artist/artisthome.jsp?success=login");
+                    }
+                    if(user instanceof Listener){
+                    Listener listener = new Listener();
+                    listener = (Listener) user;
+                    session.setAttribute("Listener", listener);
                     response.sendRedirect("listener/store.jsp?success=login");
+                    }
+                    if(user instanceof Admin){
+                    Admin admin = new Admin();
+                    admin = (Admin) admin;
+                    session.setAttribute("Admin", admin);
+       
+                    }
+                    
+                    /*response.sendRedirect("artist/artisthome.jsp?success=login");*/
                 }else{
                     request.setAttribute("error", "U gaf een foutief passwoord op. Probeer nogmaals."); 
                     request.getRequestDispatcher("/login.jsp").forward(request, response);
@@ -65,8 +74,5 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("error", "Beide velden moeten worden ingevuld."); 
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
-        
     }
-
-
 }
