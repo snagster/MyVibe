@@ -10,12 +10,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Edit your birthdate</h4>
+        <h4 class="modal-title">Edit the date your group was founded</h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal" role="form" method="post">
             <div class="form-group">
-                <label for="inputUser" class="col-sm-2 control-label">Birthdate</label>
+                <label for="inputUser" class="col-sm-2 control-label">Since Date</label>
                 <div class="col-sm-10">
                     <input type="date" name="birthdate" class="form-control" id="inputUser" placeholder="birthdate">
                 </div>

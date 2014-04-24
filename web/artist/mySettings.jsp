@@ -35,7 +35,7 @@
                 <div class="panel-body">
                     <table class="table table-hover">
                         <tr>
-                            <td>Name</td>
+                            <td>Artist Name</td>
                             <td><%= request.getAttribute( "name" ) %></td>
                             <td style="text-align: center;">
                                 <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUserFullnameModal">
@@ -75,11 +75,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Birthday</td>
+                            <td>Founded in</td>
                             <td><%= request.getAttribute("birthdate") %></td>
                             <td style="text-align: center;">
                                 <button style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm glyphicon glyphicon-edit" data-toggle="modal" data-target="#editBirthdateModal">
-                                    Edit birthdate
+                                    Edit Founded date
                                 </button>
                                 <jsp:include page="modals/updateBirthdateModal.jsp"/>
                             </td>
@@ -89,11 +89,7 @@
                             <td><%= request.getAttribute("registered") %></td>
                             <td style="text-align: center;"></td>
                         </tr>
-                        <tr>
-                            <td>Amount of credits</td>
-                            <td><%= request.getAttribute("credits") %> credits</td>
-                            <td style="text-align: center;"><a href="#" style="width: 164px; height: 30px;" class="btn btn-primary btn-lg btn-sm" role="button">Get more credits</a></td>
-                        </tr>
+                        
                     </table>
                             
                 <button type="button" class="btn btn-danger col-sm-offset-10 col-sm-2" data-toggle="modal" data-target="#removeAccountModal">Remove this account</button>

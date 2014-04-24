@@ -11,17 +11,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Edit your name</h4>
+        <h4 class="modal-title">Edit your Artistname</h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal" role="form" method="post">
-            
-            <div class="form-group">
-                <label for="inputFirstname" class="col-sm-2 control-label">Firstname</label>
-                <div class="col-sm-10">
-                    <input type="text" name="firstname" class="form-control" id="inputFirstname" placeholder="firstname">
-                </div>
-            </div>
             <div class="form-group">
                 <label for="inputName" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
