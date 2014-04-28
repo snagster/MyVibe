@@ -45,6 +45,18 @@
         <servlet-name>GenerateAlbumServlet</servlet-name>
         <servlet-class>Controller.Servlets.GenerateAlbumServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExportServletStep1</servlet-name>
+        <servlet-class>Controller.Servlets.ExportServletStep1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExportServletStep2</servlet-name>
+        <servlet-class>Controller.Servlets.ExportServletStep2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExportServletStep3</servlet-name>
+        <servlet-class>Controller.Servlets.ExportServletStep3</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ArtistPanelServlet</servlet-name>
         <url-pattern>/artist/artistpanel</url-pattern>
@@ -88,6 +100,18 @@
     <servlet-mapping>
         <servlet-name>mySettingsServlet</servlet-name>
         <url-pattern>/artist/mysettings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportServletStep1</servlet-name>
+        <url-pattern>/listener/export</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportServletStep2</servlet-name>
+        <url-pattern>/listener/ExportStep2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportServletStep3</servlet-name>
+        <url-pattern>/listener/ExportStep3</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
