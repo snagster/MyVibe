@@ -37,7 +37,11 @@
                 <% } else { %>
                     <li><a href="#">Credits</a></li> 
                 <% } %>
-                
+                <% if (request.getServletPath().equals("/listener/export.jsp")) { %>
+                    <li class="active"><a href="#">Export</a></li>
+                <% } else { %>
+                    <li><a href="export">Export</a></li> 
+                <% } %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
