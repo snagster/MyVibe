@@ -36,7 +36,7 @@ public class ExportServletStep1 extends HttpServlet {
 
     // JDBC driver name and database URL
       static final String JDBC_DRIVER="com.mysql.jdbc.Driver";  
-      static final String DB_URL="jdbc:mysql://192.168.10.100:3306/MyVibe";
+      static final String DB_URL="jdbc:mysql://snagster.no-ip.biz:3306/MyVibe";
 
       //  Database credentials
       static final String USER = "MyVibeApp";

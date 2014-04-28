@@ -46,14 +46,19 @@
                    <%
                         request.getSession().setAttribute("temp_table", (ArrayList<String[]>)request.getAttribute("table_temp"));
                     %>
-           <form action = "ExportStep3" method = "POST">
-                 //everything in the form here.
+           <form class="form-inline"  action = "ExportStep3" method = "POST" style="text-align:right; margin-right:100px;">
             
                 <div class="form-group">
-                    <div class="col-sm-offset-10 col-sm-10">
-                         <button type="submit" class="btn btn-primary" ONCLICK="export" name="csv">Export to csv</button>
-                    </div>
+                   
+                         <button type="submit" class="btn btn-primary" name="csv">Export to csv</button>
+                    
+                         <!--<button type="submit" class="btn btn-primary col-sm-10" name="pdf">Export to pdf</button>
+                 -->
                 </div>
+               <div class="form-group" >
+                   <button type="submit" class="btn btn-primary" name="pdf">Export to pdf</button>
+                 
+               </div>
           </form>
         </div>
     </body>
