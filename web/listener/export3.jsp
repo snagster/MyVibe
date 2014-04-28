@@ -41,6 +41,20 @@
                     
                 </tbody>
             </table>
+                  
+                   <!-- posting my array to export to the export servlet -->
+                   <%
+                        request.getSession().setAttribute("temp_table", (ArrayList<String[]>)request.getAttribute("table_temp"));
+                    %>
+           <form action = "ExportStep3" method = "POST">
+                 //everything in the form here.
+            
+                <div class="form-group">
+                    <div class="col-sm-offset-10 col-sm-10">
+                         <button type="submit" class="btn btn-primary" ONCLICK="export" name="csv">Export to csv</button>
+                    </div>
+                </div>
+          </form>
         </div>
     </body>
 </html>

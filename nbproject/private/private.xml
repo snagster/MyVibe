@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Laura/MyVibe/src/java/hibernate.cfg.xml</file>
-            <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/ExportServletStep1.java</file>
+            <file>file:/Users/Laura/MyVibe/src/java/Controller/ExportGenerators/GenerateCsv.java</file>
             <file>file:/Users/Laura/MyVibe/web/listener/export3.jsp</file>
-            <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/ExportServletStep2.java</file>
+            <file>file:/Users/Laura/MyVibe/web/listener/export2.jsp</file>
             <file>file:/Users/Laura/MyVibe/web/listener/header.jsp</file>
-            <file>file:/Users/Laura/MyVibe/web/listener/export.jsp</file>
+            <file>file:/Users/Laura/MyVibe/src/java/Controller/Servlets/ExportServletStep3.java</file>
         </group>
     </open-files>
 </project-private>
