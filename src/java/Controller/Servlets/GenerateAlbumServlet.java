@@ -7,14 +7,12 @@
 package Controller.Servlets;
 
 import Controller.AlbumHelper;
-import Controller.ArtistHelper;
-import Controller.UserHelper;
+import Model.Album;
 import Model.Artist;
-import Model.User;
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -23,19 +21,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author Daan
  */
 @MultipartConfig
 public class GenerateAlbumServlet extends HttpServlet {
-    private final static Logger LOGGER = 
-            Logger.getLogger(UploadServlet.class.getCanonicalName());
+    private final static Logger LOGGER = Logger.getLogger(UploadServlet.class.getCanonicalName());
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         req.getRequestDispatcher("/login.jsp").forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        AlbumHelper albumhelper = new AlbumHelper();
+        Artist artist;
+        artist = (Artist) session.getAttribute("Artist");
+        
+        List<Album> list = albumhelper.getAllAlbums(artist);
+        request.setAttribute("AlbumList", list);
+        request.getRequestDispatcher("/artist/upload.jsp").forward(request, response);
     }
     
     @Override
@@ -45,22 +48,20 @@ public class GenerateAlbumServlet extends HttpServlet {
         
         int currentyear = Calendar.getInstance().get(Calendar.YEAR);
         
-        /*Calendar calendar = Calendar.getInstance();
-        calendar.clear();
-        calendar.set(Calendar.YEAR, Integer.parseInt(request.getParameter("albumjaar")));
-        Date releasedate = calendar.getTime();*/
-        int releasedate = Integer.parseInt(request.getParameter("albumjaar")); 
-        UserHelper userhelper = new UserHelper();
-        ArtistHelper artisthelper = new ArtistHelper();
+        int releasedate = Integer.parseInt(request.getParameter("albumjaar"));
+        
+        
+        new File(request.getServletContext().getRealPath("Tracks") + "/" + request.getParameter("albumnaam")).mkdir();
+        
+ 
         AlbumHelper albumhelper = new AlbumHelper();
         String albumnaam = request.getParameter("albumnaam");
         double albumprijs = Double.parseDouble(request.getParameter("albumprijs"));
         
 
-        Artist artist = new Artist();
+        Artist artist;
         HttpSession session = request.getSession();
         artist = (Artist) session.getAttribute("Artist");
-        System.out.println(artist.getArtistRegDate());
         
         
         if(request.getParameter("albumnaam")==null){
@@ -86,7 +87,6 @@ public class GenerateAlbumServlet extends HttpServlet {
             } else {
                request.setAttribute("error", "De ingegeven waarden lijken nog fouten te bevatten. Kijk alle velden na.");
             }
-            /*session.setAttribute("user", request.getParameter("username"));*/
         }
         
         request.getRequestDispatcher("upload.jsp").forward(request, response);

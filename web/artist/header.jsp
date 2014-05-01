@@ -1,7 +1,7 @@
 <%-- 
     Document   : header
     Created on : 27-feb-2014, 18:04:47
-    Author     : Laura
+    Author     : Laura & Daan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,9 +15,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <% if (request.getServletPath().equals("/artist/upload.jsp")) { %>
-                    <li class="active"><a href="upload.jsp">Upload</a></li>
+                    <li class="active"><a href="GenerateAlbumServlet">Upload</a></li>
                 <% } else { %>
-                    <li><a href="upload.jsp">Upload</a></li> 
+                    <li><a href="GenerateAlbumServlet">Upload</a></li> 
                 <% } %>
                 
                 <% if (request.getServletPath().equals("/listener/bibliotheek.jsp")) { %>

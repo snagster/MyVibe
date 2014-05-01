@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Daan
 */
   
-.inputform input[type=text], input[type=number]{
+.inputform input[type=text], input[type=number], #ddlAlbum{
     background: white;
     border: 1px solid #DDD;
     border-radius: 5px;
@@ -34,7 +34,6 @@ and open the template in the editor.
 .inputform input[type=submit]:hover{
     background-color: #D3D3D3;
 }
-
 
 .inputform label{
     margin-top:10px;

@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib uri="../WEB-INF/lib/c.tld" prefix="c"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -83,8 +84,12 @@
             <form action="UploadServlet" method="post" enctype="multipart/form-data" name="UploadTrack">
                 <label for="muziekbestand">Muziekbestand</label>
                 <input type="file" accept="audio/mp3" name="file"  size="50" /><br />
-                <label for="Album">Album</label>
-                <input type="text" name="albumnaam"><br />
+                <label for="Albumnaam">Albumnaam</label>
+                <select name="selectAlbum" id="ddlAlbum">
+                <c:forEach  var="album" items="${AlbumList}">
+                    <option value="${album.albumName}">${album.albumName}</option>
+                </c:forEach>
+                </select> 
                 <div class="startbutton">
                 <input type="submit" value="Upload track" />
                 </div>

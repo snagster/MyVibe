@@ -8,11 +8,7 @@ package Controller;
 
 import Model.Album;
 import Model.Artist;
-import java.io.PrintWriter;
-import java.util.Calendar;
-
-import java.util.Date;
-
+import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -77,7 +73,6 @@ public class AlbumHelper {
                 
                 System.out.println(artist.getArtistName()+ " " + AlbumName + " " + AlbumYear + " " + AlbumPrice);
                 Album newAlbum = new Album(artist,AlbumName,AlbumYear,null,AlbumPrice,false,false);
-                System.out.println("OK");
                 session.save(newAlbum);
                 if(!trans.wasCommitted()){
                     trans.commit();
@@ -92,11 +87,14 @@ public class AlbumHelper {
             }
             throw e;
         }
+    } 
         
-        
-        
-        
+    public List<Album> getAllAlbums(Artist artist){
+        Transaction trans = session.beginTransaction();
+        Criteria criteria = session.createCriteria(Album.class);
+        criteria.add(Restrictions.eq("artist",artist));
+        List<Album> albums = criteria.list();
+        trans.commit();
+        return albums;
     }
-    
-    
 }
