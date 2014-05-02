@@ -57,6 +57,10 @@
         <servlet-name>ExportServletStep3</servlet-name>
         <servlet-class>Controller.Servlets.ExportServletStep3</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GenreHelper</servlet-name>
+        <servlet-class>Controller.GenreHelper</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ArtistPanelServlet</servlet-name>
         <url-pattern>/artist/artistpanel</url-pattern>
@@ -112,6 +116,10 @@
     <servlet-mapping>
         <servlet-name>ExportServletStep3</servlet-name>
         <url-pattern>/listener/ExportStep3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GenreHelper</servlet-name>
+        <url-pattern>/GenreHelper</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

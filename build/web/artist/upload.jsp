@@ -17,7 +17,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script>
-            function validateForm(){
+            function validateFormAlbum(){
                 var stop=false;
                 var albumname=document.forms["GenerateAlbum"]["albumnaam"].value;
                 var albumyear=document.forms["GenerateAlbum"]["albumjaar"].value;
@@ -50,6 +50,23 @@
                     return true;
                 }
             }
+            function validateFormTrack(){
+                var stop=false;
+                var trackname=document.forms["UploadTrack"]["albumnaam"].value;
+                var currentTime = new Date().getFullYear();
+                if(trackname==null||trackname==""){
+                    document.getElementById("tracknaam").style.borderColor="red";
+                    stop=true;
+                } else {
+                    document.getElementById("tracknaam").style.borderColor="inherit";
+                    stop=false;
+                }
+                if(stop==true){
+                    return false;
+                } else {
+                    return true;
+                }
+            }
         </script>
     </head>
     <body>
@@ -67,10 +84,14 @@
             <h1>Creëer een album</h1>
             <p>Voordat je een track kunt uploaden moet je eerst het album creëren waartoe de track moet behoren.</p>
             </div>
-            <form action="GenerateAlbumServlet" method="post" enctype="multipart/form-data" name="GenerateAlbum" onsubmit="return validateForm();" >
+            <form action="GenerateAlbumServlet" method="post" enctype="multipart/form-data" name="GenerateAlbum" onsubmit="return validateFormAlbum();" >
                 <label for="albumnaam">Albumnaam</label><input type="text" name="albumnaam" id="albumnaam" maxlength="100"><br />
                 <label for="albumjaar">Uitgavejaar</label><input type="number" name="albumjaar" id="albumjaar" maxlength="4"><br />
                 <label for="albumprijs">Aankoopprijs (€)</label><input type="number" name="albumprijs" id="albumprijs" maxlength="10"><br />
+                <label for="Genres">Genres</label>
+                <c:forEach var="genre" items="${GenreList}">
+                    <span class="checkbox"><input type="checkbox" name="${genre.genreName}" value="${genre.genreName}">${genre.genreName}</input></span>
+                </c:forEach></br>
                 <div class="startbutton">
                 <input type="submit" name="GenereerAlbum" value="Creëer album">
                 </div>
@@ -82,14 +103,16 @@
             <p>Het album waaraan je de track wilt toevoegen moet reeds aangemaakt zijn.</p>
             </div>
             <form action="UploadServlet" method="post" enctype="multipart/form-data" name="UploadTrack">
-                <label for="muziekbestand">Muziekbestand</label>
-                <input type="file" accept="audio/mp3" name="file"  size="50" /><br />
+                <label for="tracknaam">Tracknaam</label><input type="text" name="tracknaam" id="tracknaam" maxlength="100"><br />
+                
                 <label for="Albumnaam">Albumnaam</label>
-                <select name="selectAlbum" id="ddlAlbum">
+                <select name="selectAlbum" class="DropDown">
                 <c:forEach  var="album" items="${AlbumList}">
                     <option value="${album.albumName}">${album.albumName}</option>
                 </c:forEach>
-                </select> 
+                </select><br />
+                <label for="muziekbestand">Muziekbestand</label>
+                <input type="file" accept="audio/mp3" name="file"  size="50" class="right"/><br />
                 <div class="startbutton">
                 <input type="submit" value="Upload track" />
                 </div>

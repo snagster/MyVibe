@@ -7,10 +7,13 @@
 package Controller.Servlets;
 
 import Controller.AlbumHelper;
+import Controller.GenreHelper;
 import Model.Album;
 import Model.Artist;
+import Model.Genre;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Logger;
@@ -28,16 +31,18 @@ import javax.servlet.http.HttpSession;
 @MultipartConfig
 public class GenerateAlbumServlet extends HttpServlet {
     private final static Logger LOGGER = Logger.getLogger(UploadServlet.class.getCanonicalName());
-    
+    private List<Genre> genreList;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         AlbumHelper albumhelper = new AlbumHelper();
+        GenreHelper genrehelper = new GenreHelper();
         Artist artist;
         artist = (Artist) session.getAttribute("Artist");
-        
         List<Album> list = albumhelper.getAllAlbums(artist);
+        genreList = genrehelper.getAllGenres();
         request.setAttribute("AlbumList", list);
+        request.setAttribute("GenreList", genreList);
         request.getRequestDispatcher("/artist/upload.jsp").forward(request, response);
     }
     
@@ -45,10 +50,16 @@ public class GenerateAlbumServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        
         int currentyear = Calendar.getInstance().get(Calendar.YEAR);
-        
         int releasedate = Integer.parseInt(request.getParameter("albumjaar"));
+        List<Genre> selectedGenres = new ArrayList<Genre>();
+        GenreHelper genrehelper = new GenreHelper();
+        for(Genre genre : genreList){
+            if(request.getParameter(genre.getGenreName())!=null){
+                selectedGenres.add(genre);
+            }
+        }
+        
         
         new File("c:/Tracks").mkdir();
         new File("c:/Tracks/" + request.getParameter("albumnaam")).mkdir();
@@ -81,6 +92,11 @@ public class GenerateAlbumServlet extends HttpServlet {
                 } else {
                     try{
                     albumhelper.createAlbum(artist,albumnaam,releasedate,albumprijs);
+                    Album album = new Album();
+                    albumhelper.getAlbumByAlbumname(albumnaam);
+                    /*for(Genre genre : selectedGenres){
+                        genrehelper.addAlbumGenre(genre, album);
+                    }*/
                     request.getRequestDispatcher("/artist/refreshpage.jsp").forward(request, response);
                     } catch(Exception e) {
                         request.setAttribute("error", e.getMessage());

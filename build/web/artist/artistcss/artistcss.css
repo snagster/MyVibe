@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Daan
 */
   
-.inputform input[type=text], input[type=number], #ddlAlbum{
+.inputform input[type=text], input[type=number], .DropDown, .right{
     background: white;
     border: 1px solid #DDD;
     border-radius: 5px;
@@ -20,6 +20,10 @@ and open the template in the editor.
     margin-top:5px;
     margin-bottom:5px;
     float:right;
+}
+
+.checkbox{
+
 }
 
 .inputform input[type=submit]{

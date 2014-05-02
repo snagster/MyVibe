@@ -7,7 +7,7 @@
       <column name="GenreID"/>
       <generator class="identity"/>
     </id>
-    <property name="genreName" type="int">
+    <property name="genreName" type="string">
       <column name="GenreName" not-null="true"/>
     </property>
     <set fetch="select" inverse="true" lazy="true" name="genreAlbums" table="GenreAlbum">

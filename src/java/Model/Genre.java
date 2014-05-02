@@ -12,17 +12,17 @@ public class Genre  implements java.io.Serializable {
 
 
      private Integer genreId;
-     private int genreName;
+     private String genreName;
      private Set<GenreAlbum> genreAlbums = new HashSet<GenreAlbum>(0);
 
     public Genre() {
     }
 
 	
-    public Genre(int genreName) {
+    public Genre(String genreName) {
         this.genreName = genreName;
     }
-    public Genre(int genreName, Set<GenreAlbum> genreAlbums) {
+    public Genre(String genreName, Set<GenreAlbum> genreAlbums) {
        this.genreName = genreName;
        this.genreAlbums = genreAlbums;
     }
@@ -34,11 +34,11 @@ public class Genre  implements java.io.Serializable {
     public void setGenreId(Integer genreId) {
         this.genreId = genreId;
     }
-    public int getGenreName() {
+    public String getGenreName() {
         return this.genreName;
     }
     
-    public void setGenreName(int genreName) {
+    public void setGenreName(String genreName) {
         this.genreName = genreName;
     }
     public Set<GenreAlbum> getGenreAlbums() {

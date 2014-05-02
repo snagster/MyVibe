@@ -25,7 +25,6 @@ public class UploadServlet extends HttpServlet {
               throws ServletException, java.io.IOException {
     response.setContentType("text/html;charset=UTF-8");
     
-
     // Create path components to save the file
     /*final String path = getServletContext().getInitParameter("file-upload"); */
     final String path = "c:/Tracks/" + request.getParameter("selectAlbum");
