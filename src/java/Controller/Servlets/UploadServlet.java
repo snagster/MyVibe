@@ -24,15 +24,22 @@ public class UploadServlet extends HttpServlet {
       public void doPost(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, java.io.IOException {
     response.setContentType("text/html;charset=UTF-8");
+    
 
     // Create path components to save the file
-    final String path = getServletContext().getInitParameter("file-upload"); 
+    /*final String path = getServletContext().getInitParameter("file-upload"); */
+    final String path = "c:/Tracks/" + request.getParameter("selectAlbum");
     final Part filePart = request.getPart("file");
     final String fileName = getFileName(filePart);
-
+    final PrintWriter writer = response.getWriter();
+    
+    if(fileName.indexOf(".mp3") == -1){
+        LOGGER.log(Level.INFO, "File {0} is not an mp3-file!", new Object[]{fileName, path});
+        writer.println("The file you uploaded is not an mp3-file!");
+    } else {
     OutputStream out = null;
     InputStream filecontent = null;
-    final PrintWriter writer = response.getWriter();
+    
 
     try {
         out = new FileOutputStream(new File(path + File.separator
@@ -48,6 +55,7 @@ public class UploadServlet extends HttpServlet {
         writer.println("New file " + fileName + " created at " + path);
         LOGGER.log(Level.INFO, "File{0}being uploaded to {1}", 
                 new Object[]{fileName, path});
+        request.getRequestDispatcher("/artist/refreshpage.jsp").forward(request, response);
     } catch (FileNotFoundException fne) {
         writer.println("You either did not specify a file to upload or are "
                 + "trying to upload a file to a protected or nonexistent "
@@ -66,6 +74,7 @@ public class UploadServlet extends HttpServlet {
         if (writer != null) {
             writer.close();
         }
+    }
     }
 }
 

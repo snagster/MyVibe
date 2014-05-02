@@ -50,8 +50,9 @@ public class GenerateAlbumServlet extends HttpServlet {
         
         int releasedate = Integer.parseInt(request.getParameter("albumjaar"));
         
-        
-        new File(request.getServletContext().getRealPath("Tracks") + "/" + request.getParameter("albumnaam")).mkdir();
+        new File("c:/Tracks").mkdir();
+        new File("c:/Tracks/" + request.getParameter("albumnaam")).mkdir();
+        /*new File(request.getServletContext().getRealPath("Tracks") + "/" + request.getParameter("albumnaam")).mkdir();*/
         
  
         AlbumHelper albumhelper = new AlbumHelper();
@@ -80,6 +81,7 @@ public class GenerateAlbumServlet extends HttpServlet {
                 } else {
                     try{
                     albumhelper.createAlbum(artist,albumnaam,releasedate,albumprijs);
+                    request.getRequestDispatcher("/artist/refreshpage.jsp").forward(request, response);
                     } catch(Exception e) {
                         request.setAttribute("error", e.getMessage());
                     }
@@ -89,6 +91,6 @@ public class GenerateAlbumServlet extends HttpServlet {
             }
         }
         
-        request.getRequestDispatcher("upload.jsp").forward(request, response);
+        /*request.getRequestDispatcher("upload.jsp").forward(request, response);*/
     }
 }

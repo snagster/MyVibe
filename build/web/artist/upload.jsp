@@ -6,13 +6,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@taglib uri="../WEB-INF/lib/c.tld" prefix="c"%>
+<%@taglib uri="../WEB-INF/tags/c.tld" prefix="c"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Upload track</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="artistcss.css" rel="stylesheet"/>
+        <link href="artistcss/artistcss.css" rel="stylesheet"/>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
