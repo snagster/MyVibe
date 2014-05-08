@@ -12,12 +12,18 @@ public class Review  implements java.io.Serializable {
      private Integer reviewId;
      private Listener listener;
      private Album album;
+     private String reviewText;
 
     public Review() {
     }
 
     public Review(Listener listener, Album albums) {
        this.listener = listener;
+       this.album = album;
+    }
+    
+    public Review(Album albums, String ReviewText) {
+       this.reviewText = ReviewText;
        this.album = album;
     }
    
