@@ -20,7 +20,7 @@
                     <li><a href="#">Store</a></li> 
                 <% } %>
                 
-                <% if (request.getServletPath().equals("/listener/bibliotheek.jsp")) { %>
+                <% if (request.getServletPath().equals("/listener/albums.jsp")) { %>
                     <li class="active"><a href="#">Mijn bibliotheek</a></li>
                 <% } else { %>
                     <li><a href="#">Mijn bibliotheek</a></li> 
