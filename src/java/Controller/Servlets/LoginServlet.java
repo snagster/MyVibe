@@ -41,16 +41,15 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("user", request.getParameter("username"));
                     
                     if(user instanceof Artist){
-                    Artist artist = new Artist();
-                    artist = (Artist) user;
+                    Artist artist = (Artist) user;
                     session.setAttribute("Artist", artist);
                     request.setAttribute("ArtistName", artist.getArtistName());
                     response.sendRedirect("artist/artisthome.jsp?success=login");
                     }
                     if(user instanceof Listener){
-                    Listener listener = new Listener();
-                    listener = (Listener) user;
+                    Listener listener = (Listener) user;
                     session.setAttribute("Listener", listener);
+                    request.setAttribute("ListenerName", listener.getListenerFullName());
                     response.sendRedirect("listener/store.jsp?success=login");
                     }
                     if(user instanceof Admin){

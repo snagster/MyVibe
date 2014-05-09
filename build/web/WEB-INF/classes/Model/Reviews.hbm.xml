@@ -10,6 +10,9 @@
     <many-to-one class="Model.Listener" fetch="select" name="listener">
       <column name="ListenerID" not-null="true"/>
     </many-to-one>
+    <property name="reviewText" type="string">
+        <column length="65535" name="ReviewText" not-null="true"/>
+    </property>
     <many-to-one class="Model.Album" fetch="select" name="album">
       <column name="AlbumID" not-null="true"/>
     </many-to-one>

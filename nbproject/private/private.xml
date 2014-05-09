@@ -3,15 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/web/artist/artistcss/artistcss.css</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/ExportServletStep1.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/PasswordRecoveryServlet.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Model/Track.java</file>
             <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/web/artist/upload.jsp</file>
-            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/UploadServlet.java</file>
             <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Model/Album.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/TrackServlet.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/LoginServlet.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Model/Review.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/GenerateAlbumServlet.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/AlbumHelper.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/UserHelper.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/mySettingsServlet.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/UploadServlet.java</file>
             <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/GenreHelper.java</file>
             <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Model/Admins.hbm.xml</file>
             <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Model/GenreAlbum.java</file>
-            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/Servlets/GenerateAlbumServlet.java</file>
-            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/AlbumHelper.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Controller/ReviewHelper.java</file>
+            <file>file:/C:/Users/Daan/Documents/GitHub/MyVibe/src/java/Model/Reviews.hbm.xml</file>
         </group>
     </open-files>
 </project-private>

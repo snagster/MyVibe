@@ -17,12 +17,13 @@ public class Review  implements java.io.Serializable {
     public Review() {
     }
 
-    public Review(Listener listener, Album albums) {
+    /*public Review(Listener listener, Album album) {
        this.listener = listener;
        this.album = album;
-    }
+    }*/
     
-    public Review(Album albums, String ReviewText) {
+    public Review(Listener listener, Album album, String ReviewText) {
+       this.listener = listener;
        this.reviewText = ReviewText;
        this.album = album;
     }
@@ -48,6 +49,15 @@ public class Review  implements java.io.Serializable {
     public void setAlbum(Album album) {
         this.album = album;
     }
+    
+    public String getReviewText(){
+        return this.reviewText;
+    }
+    
+    public void setReviewText(String reviewText){
+        this.reviewText = reviewText;
+    }
+    
 
 
 

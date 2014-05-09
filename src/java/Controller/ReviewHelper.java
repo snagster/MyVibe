@@ -8,6 +8,7 @@ package Controller;
 
 import Model.Album;
 import Model.Artist;
+import Model.Listener;
 import Model.Review;
 import Model.User;
 import java.io.PrintWriter;
@@ -37,13 +38,13 @@ public class ReviewHelper {
     }
         
    
-    public void createReview(Album album, String ReviewText) throws Exception{
+    public void createReview(Listener listener, Album album, String ReviewText) throws Exception{
         Transaction trans=session.beginTransaction();
         
 
         try{  
                 System.out.println(ReviewText);
-                Review review = new Review(album,ReviewText);
+                Review review = new Review(listener ,album,ReviewText);
                 System.out.println("OK");
                 session.save(review);
                 if(!trans.wasCommitted()){
