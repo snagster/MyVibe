@@ -16,9 +16,6 @@
     <property name="albumYear" type="java.lang.Integer">
       <column length="0" name="AlbumYear" not-null="true"/>
     </property>
-    <property name="albumThumbnail" type="binary">
-      <column name="AlbumThumbnail" not-null="false"/>
-    </property>
     <property name="albumPrice" type="double">
       <column name="AlbumPrice" not-null="true" precision="22" scale="0"/>
     </property>
@@ -45,6 +42,12 @@
         <column name="AlbumID" not-null="true"/>
       </key>
       <one-to-many class="Model.Track"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="orderDetails" table="OrderDetails">
+      <key>
+        <column name="AlbumID" not-null="true"/>
+      </key>
+      <one-to-many class="Model.OrderDetail"/>
     </set>
   </class>
 </hibernate-mapping>

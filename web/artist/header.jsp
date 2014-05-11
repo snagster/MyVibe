@@ -17,13 +17,13 @@
                 <% if (request.getServletPath().equals("/artist/upload.jsp")) { %>
                     <li class="active"><a href="GenerateAlbumServlet">Upload</a></li>
                 <% } else { %>
-                    <li><a href="GenerateAlbumServlet">Upload</a></li> 
+                    <li><a href="GenerateAlbumServlet">Upload</a></li>
                 <% } %>
                 
-                <% if (request.getServletPath().equals("/listener/bibliotheek.jsp")) { %>
-                    <li class="active"><a href="#">Mijn bibliotheek</a></li>
+                <% if (request.getServletPath().equals("/artist/artistlibrary.jsp")) { %>
+                    <li class="active"><a href="ArtistLibraryServlet">Mijn bibliotheek</a></li>
                 <% } else { %>
-                    <li><a href="#">Mijn bibliotheek</a></li> 
+                    <li><a href="ArtistLibraryServlet">Mijn bibliotheek</a></li> 
                 <% } %>
                 
                 <% if (request.getServletPath().equals("/listener/reviews.jsp")) { %>

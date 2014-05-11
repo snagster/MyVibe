@@ -7,8 +7,11 @@
       <column name="OrderDetailID"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="Model.Track" fetch="select" name="track">
+    <!--<many-to-one class="Model.Track" fetch="select" name="track">
       <column name="TrackID" not-null="true"/>
+    </many-to-one>-->
+    <many-to-one class="Model.Album" fetch="select" name="album">
+      <column name="AlbumID" not-null="true"/>
     </many-to-one>
     <many-to-one class="Model.Order" fetch="select" name="order">
       <column name="OrderID" not-null="true"/>

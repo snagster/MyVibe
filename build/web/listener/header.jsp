@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <% if (request.getServletPath().equals("/listener/store.jsp")) { %>
-                    <li class="active"><a href="#">Store</a></li>
+                    <li class="active"><a href="TrackServlet">Store</a></li>
                 <% } else { %>
                     <li><a href="#">Store</a></li> 
                 <% } %>

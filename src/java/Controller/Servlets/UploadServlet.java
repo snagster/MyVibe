@@ -1,6 +1,10 @@
 package Controller.Servlets;
 
+import Controller.AlbumHelper;
+import Controller.TrackHelper;
+import Model.Album;
 import java.io.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
 
 /**
  *
@@ -26,57 +31,70 @@ public class UploadServlet extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     
     // Create path components to save the file
-    /*final String path = getServletContext().getInitParameter("file-upload"); */
+    //Path waar track moet worden opgeslagen wordt gegenereerd op basis
+    //van het geselecteerde album
     final String path = "c:/Tracks/" + request.getParameter("selectAlbum");
+    
+    //albumobject aanmaken om straks te gebruiken voor het aanmaken van een track
+    AlbumHelper albumhelper = new AlbumHelper();
+    TrackHelper trackhelper = new TrackHelper();
+    Album album = albumhelper.getAlbumByAlbumname(request.getParameter("selectAlbum"));
+    
     final Part filePart = request.getPart("file");
     final String fileName = getFileName(filePart);
     final PrintWriter writer = response.getWriter();
+    String trackName = request.getParameter("tracknaam");
     
-    if(fileName.indexOf(".mp3") == -1){
-        LOGGER.log(Level.INFO, "File {0} is not an mp3-file!", new Object[]{fileName, path});
-        writer.println("The file you uploaded is not an mp3-file!");
+    if(request.getParameter("tracknaam")==null){
+        request.setAttribute("error", "Albumnaam moet ingevuld zijn.");
     } else {
-    OutputStream out = null;
-    InputStream filecontent = null;
-    
-
-    try {
-        out = new FileOutputStream(new File(path + File.separator
-                + fileName));
-        filecontent = filePart.getInputStream();
-
-        int read = 0;
-        final byte[] bytes = new byte[1024];
-
-        while ((read = filecontent.read(bytes)) != -1) {
-            out.write(bytes, 0, read);
-        }
-        writer.println("New file " + fileName + " created at " + path);
-        LOGGER.log(Level.INFO, "File{0}being uploaded to {1}", 
+        //kijken of het geüploade bestand het mp3-formaat heeft
+        if(fileName.indexOf(".mp3") == -1){
+            LOGGER.log(Level.INFO, "Bestand {0} is geen mp3-bestand.", new Object[]{fileName, path});
+            writer.println("Het geüploade bestand is geen mp3-bestand.");
+        } else {
+            OutputStream out = null;
+            InputStream filecontent = null;
+            try {
+                //bestand aanmaken om naar te schrijven
+                out = new FileOutputStream(new File(path + File.separator + trackName+".mp3"));
+                
+                //het bestand naar een variabele schrijven via InputStream
+                filecontent = filePart.getInputStream();
+                int read = 0;
+                final byte[] bytes = new byte[1024];
+        
+                //het bestand naar het aangemaakte bestand schrijven
+                while ((read = filecontent.read(bytes)) != -1) {
+                    out.write(bytes, 0, read);
+                }
+                
+                writer.println("Bestand " + fileName + " is aangemaakt.");
+                LOGGER.log(Level.INFO, "Bestand{0}wordt geüpload naar {1}", 
                 new Object[]{fileName, path});
-        request.getRequestDispatcher("/artist/refreshpage.jsp").forward(request, response);
-    } catch (FileNotFoundException fne) {
-        writer.println("You either did not specify a file to upload or are "
-                + "trying to upload a file to a protected or nonexistent "
-                + "location.");
-        writer.println("<br/> ERROR: " + fne.getMessage());
+                request.getRequestDispatcher("/artist/refreshpage.jsp").forward(request, response);
+        
+            } catch (FileNotFoundException fne) {
+                writer.println("Je hebt oftwel geen bestand geselecteerd of je "
+                + "probeert een bestand te uploaden naar een beveiligde of "
+                + "niet bestaande locatie.");
+                writer.println("<br/> ERROR: " + fne.getMessage());
 
-        LOGGER.log(Level.SEVERE, "Problems during file upload. Error: {0}", 
+                LOGGER.log(Level.SEVERE, "Problemen tijdens file-uplaod. Error: {0}", 
                 new Object[]{fne.getMessage()});
-    } finally {
-        if (out != null) {
-            out.close();
+            }
         }
-        if (filecontent != null) {
-            filecontent.close();
+        try{
+            //toevoegen van de track aan de database
+            trackhelper.createTrack(album, trackName);
+        } catch(Exception e){
+            request.setAttribute("error", e.getMessage());
         }
-        if (writer != null) {
-            writer.close();
         }
+        
+        
     }
-    }
-}
-
+      
 private String getFileName(final Part part) {
     final String partHeader = part.getHeader("content-disposition");
     LOGGER.log(Level.INFO, "Part Header = {0}", partHeader);

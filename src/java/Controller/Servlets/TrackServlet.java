@@ -6,18 +6,12 @@
 
 package Controller.Servlets;
 
+
 import Controller.AlbumHelper;
-import Controller.ArtistHelper;
-import Controller.ListenerHelper;
 import Controller.TrackHelper;
-import Controller.UserHelper;
 import Model.Album;
-import Model.Artist;
-import Model.Listener;
 import Model.Track;
-import Model.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -28,10 +22,29 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Laura
+ * @author Jens
  */
 public class TrackServlet extends HttpServlet {
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException 
+    {
+        HttpSession session = request.getSession();
+        TrackHelper trackHelper = new TrackHelper();
+        Album album = (Album) session.getAttribute("album");
+        List<Track> trackList = trackHelper.getAllTracks(album);
+        request.setAttribute("TrackList", trackList);
+        request.getRequestDispatcher("/listener/trackspage.jsp").forward(request, response);
+    }
+
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();     
+    }
     
     protected void doGet(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws ServletException, IOException
     {

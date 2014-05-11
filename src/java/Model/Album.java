@@ -16,38 +16,37 @@ public class Album  implements java.io.Serializable {
      private Artist artist;
      private String albumName;
      private int albumYear;
-     private byte[] albumThumbnail;
      private double albumPrice;
      private boolean albumVerified;
      private boolean albumRestricted;
      private Set<Review> reviews = new HashSet<Review>(0);
      private Set<GenreAlbum> genreAlbums = new HashSet<GenreAlbum>(0);
      private Set<Track> tracks = new HashSet<Track>(0);
+     private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
 
     public Album() {
     }
     
-    public Album(Artist artist, String albumName, int albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted) {
+    public Album(Artist artist, String albumName, int albumYear, double albumPrice, boolean albumVerified, boolean albumRestricted) {
         this.artist = artist;
         this.albumName = albumName;
         this.albumYear = albumYear;
-        this.albumThumbnail = albumThumbnail;
         this.albumPrice = albumPrice;
         this.albumVerified = albumVerified;
         this.albumRestricted = albumRestricted;
     }
     
-    public Album(Artist artist, String albumName, int albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted, Set<Review> reviews, Set<GenreAlbum> genreAlbums, Set<Track> tracks) {
+    public Album(Artist artist, String albumName, int albumYear, byte[] albumThumbnail, double albumPrice, boolean albumVerified, boolean albumRestricted, Set<Review> reviews, Set<GenreAlbum> genreAlbums, Set<Track> tracks, Set<OrderDetail> orderDetails) {
        this.artist = artist;
        this.albumName = albumName;
        this.albumYear = albumYear;
-       this.albumThumbnail = albumThumbnail;
        this.albumPrice = albumPrice;
        this.albumVerified = albumVerified;
        this.albumRestricted = albumRestricted;
        this.reviews = reviews;
        this.genreAlbums = genreAlbums;
        this.tracks = tracks;
+       this.orderDetails = orderDetails;
     }
    
     public Integer getAlbumId() {
@@ -80,13 +79,6 @@ public class Album  implements java.io.Serializable {
     
     public void setAlbumYear(int albumYear) {
         this.albumYear = albumYear;
-    }
-    public byte[] getAlbumThumbnail() {
-        return this.albumThumbnail;
-    }
-    
-    public void setAlbumThumbnail(byte[] albumThumbnail) {
-        this.albumThumbnail = albumThumbnail;
     }
     
     public double getAlbumPrice() {
@@ -132,6 +124,14 @@ public class Album  implements java.io.Serializable {
     
     public void setTracks(Set<Track> tracks) {
         this.tracks = tracks;
+    }
+    
+    public Set<OrderDetail> getOrderDetails() {
+        return this.orderDetails;
+    }
+    
+    public void setOrderDetails(Set<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }
 
