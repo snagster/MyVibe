@@ -43,7 +43,8 @@ public class Listener extends User implements java.io.Serializable {
     }
     
     public Integer getUserID(){
-        return this.UserID; 
+        /*return this.UserID; */
+        return super.getUserId();
     }
     
     public String getListenerFullName() {

@@ -4,34 +4,33 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+    
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    
+    <!--user-servlets-->
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>Controller.Servlets.RegisterServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ArtistLibraryServlet</servlet-name>
-        <servlet-class>Controller.Servlets.ArtistLibraryServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Controller.Servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ArtistPanelServlet</servlet-name>
-        <servlet-class>Controller.Servlets.ArtistPanelServlet</servlet-class>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Controller.Servlets.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PasswordRecoveryServlet</servlet-name>
         <servlet-class>Controller.Servlets.PasswordRecoveryServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Logout</servlet-name>
-        <servlet-class>Controller.Servlets.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>mySettingsServlet</servlet-name>
@@ -40,6 +39,16 @@
     <servlet>
         <servlet-name>removeAccount</servlet-name>
         <servlet-class>Controller.Servlets.RemoveAccountServlet</servlet-class>
+    </servlet>
+    
+    <!--artist servlets-->
+    <servlet>
+        <servlet-name>ArtistLibraryServlet</servlet-name>
+        <servlet-class>Controller.Servlets.ArtistLibraryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ArtistPanelServlet</servlet-name>
+        <servlet-class>Controller.Servlets.ArtistPanelServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UploadServlet</servlet-name>
@@ -53,6 +62,14 @@
         <servlet-name>TrackServlet</servlet-name>
         <servlet-class>Controller.Servlets.TrackServlet</servlet-class>
     </servlet>
+    
+    <!--listener-servlets-->
+    <servlet>
+        <servlet-name>CreditServlet</servlet-name>
+        <servlet-class>Controller.Servlets.CreditServlet</servlet-class>
+    </servlet>
+    
+    <!--export-servlets-->
     <servlet>
         <servlet-name>ExportServletStep1</servlet-name>
         <servlet-class>Controller.Servlets.ExportServletStep1</servlet-class>
@@ -65,18 +82,13 @@
         <servlet-name>ExportServletStep3</servlet-name>
         <servlet-class>Controller.Servlets.ExportServletStep3</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>GenreHelper</servlet-name>
-        <servlet-class>Controller.GenreHelper</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ArtistPanelServlet</servlet-name>
-        <url-pattern>/artist/artistpanel</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
+    
+    
+  
+    
+    
+    
+    <!--user mappings-->
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -94,16 +106,26 @@
         <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ArtistLibraryServlet</servlet-name>
-        <url-pattern>/artist/ArtistLibraryServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>mySettingsServlet</servlet-name>
         <url-pattern>/listener/mysettings</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>removeAccount</servlet-name>
         <url-pattern>/removemyaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mySettingsServlet</servlet-name>
+        <url-pattern>/artist/mysettings</url-pattern>
+    </servlet-mapping>
+        
+    <!--artist mappings-->
+    <servlet-mapping>
+        <servlet-name>ArtistPanelServlet</servlet-name>
+        <url-pattern>/artist/artistpanel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArtistLibraryServlet</servlet-name>
+        <url-pattern>/artist/ArtistLibraryServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UploadServlet</servlet-name>
@@ -117,10 +139,14 @@
         <servlet-name>TrackServlet</servlet-name>
         <url-pattern>/listener/TrackServlet</url-pattern>
     </servlet-mapping>
+    
+    <!--listener mappings-->
     <servlet-mapping>
-        <servlet-name>mySettingsServlet</servlet-name>
-        <url-pattern>/artist/mysettings</url-pattern>
+        <servlet-name>CreditServlet</servlet-name>
+        <url-pattern>/listener/CreditServlet</url-pattern>
     </servlet-mapping>
+    
+    <!--export mappings-->
     <servlet-mapping>
         <servlet-name>ExportServletStep1</servlet-name>
         <url-pattern>/listener/export</url-pattern>
@@ -133,10 +159,14 @@
         <servlet-name>ExportServletStep3</servlet-name>
         <url-pattern>/listener/ExportStep3</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GenreHelper</servlet-name>
-        <url-pattern>/GenreHelper</url-pattern>
-    </servlet-mapping>
+    
+    
+    
+    
+    
+    
+    
+    
     <session-config>
         <session-timeout>
             30

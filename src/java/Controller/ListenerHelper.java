@@ -74,4 +74,22 @@ public class ListenerHelper extends UserHelper {
             session.close();
         }
     }
+    
+    public void updateCredits(int userId, int credits, String action) throws Exception{
+        Transaction trans = session.beginTransaction();
+        Listener listenerToUpdate = (Listener) session.get(Listener.class, userId);
+        
+        if(action.equals("add")){
+            listenerToUpdate.setCredits(listenerToUpdate.getCredits()+credits);
+        } else if(action.equals("remove")){
+            listenerToUpdate.setCredits(listenerToUpdate.getCredits()-credits);
+        } else {
+            throw new Exception("Onbestaande action opgegeven. Enkel 'add' of 'remove' mogelijk"); 
+        }
+        session.update(listenerToUpdate);
+        if(!trans.wasCommitted()){
+                trans.commit();
+            }
+        session.close();
+    }
 }

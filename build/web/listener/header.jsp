@@ -33,9 +33,9 @@
                 <% } %>
                 
                 <% if (request.getServletPath().equals("/listener/credits.jsp")) { %>
-                    <li class="active"><a href="#">Credits</a></li>
+                    <li class="active"><a href="CreditServlet">Credits</a></li>
                 <% } else { %>
-                    <li><a href="#">Credits</a></li> 
+                    <li><a href="CreditServlet">Credits</a></li> 
                 <% } %>
                 <% if (request.getServletPath().equals("/listener/export.jsp")) { %>
                     <li class="active"><a href="#">Export</a></li>
