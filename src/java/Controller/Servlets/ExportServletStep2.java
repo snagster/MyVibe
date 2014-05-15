@@ -25,13 +25,17 @@ import javax.servlet.http.HttpServletResponse;
  * @author Laura
  */
 public class ExportServletStep2 extends HttpServlet {
-    // JDBC driver name and database URL
+    
+      // JDBC driver name and database URL
       static final String JDBC_DRIVER="com.mysql.jdbc.Driver";  
-      static final String DB_URL="jdbc:mysql://snagster-no.ip.biz:3306/MyVibe";
+      static final String DB_URL="jdbc:mysql://snagster.no-ip.biz:3306/MyVibe";
 
       //  Database credentials
       static final String USER = "MyVibeApp";
       static final String PASS = "Fr0d0AndS@m";
+    
+    
+    
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,7 +86,7 @@ public class ExportServletStep2 extends HttpServlet {
                         "SELECT Allowed, UserFullName, UserBirthDate,Users.UserID, AlbumRestricted, AlbumVerified, Albums.ArtistID, AlbumPrice, AlbumYear, AlbumName, Albums.AlbumID, " +
                         "SinceDate, Contracts.ContractID, ArtistContactNumer, ArtistRegDate, ArtistName, ContractBeginDate, ContractEndDate, ContractPrice, Genres.GenreID, " +
                         "GenreAlbumID, GenreName, ListenerBirthDate, Credits, ListenerFullName, OrderDetailID, Orders.OrderID, Tracks.TrackID, Reviews.ListenerID, ReviewID, " +
-                        "TrackPrice, TrackGenre, TrackLength, TrackName, " +
+                        "TrackName, " +
                         "Username, " +
                         "UserPassword, " +
                         "UserRegDate, " +
