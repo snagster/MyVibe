@@ -82,7 +82,7 @@ public class GenerateAlbumServlet extends HttpServlet {
         
         AlbumHelper albumhelper = new AlbumHelper();
         String albumnaam = request.getParameter("albumnaam");
-        double albumprijs = Double.parseDouble(request.getParameter("albumprijs"));
+        double albumprijs = Double.parseDouble(request.getParameter("albumprijs"))*10;
 
         
         HttpSession session = request.getSession();

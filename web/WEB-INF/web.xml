@@ -68,6 +68,18 @@
         <servlet-name>CreditServlet</servlet-name>
         <servlet-class>Controller.Servlets.CreditServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StoreServlet</servlet-name>
+        <servlet-class>Controller.Servlets.StoreServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuyAlbumServlet</servlet-name>
+        <servlet-class>Controller.Servlets.BuyAlbumServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowAlbumServlet</servlet-name>
+        <servlet-class>Controller.Servlets.ShowAlbumServlet</servlet-class>
+    </servlet>
     
     <!--export-servlets-->
     <servlet>
@@ -144,6 +156,18 @@
     <servlet-mapping>
         <servlet-name>CreditServlet</servlet-name>
         <url-pattern>/listener/CreditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StoreServlet</servlet-name>
+        <url-pattern>/listener/StoreServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuyAlbumServlet</servlet-name>
+        <url-pattern>/listener/BuyAlbumServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAlbumServlet</servlet-name>
+        <url-pattern>/listener/ShowAlbumServlet</url-pattern>
     </servlet-mapping>
     
     <!--export mappings-->

@@ -1,38 +1,28 @@
 <%-- 
-    Document   : store
-    Created on : 27-feb-2014, 18:00:14
-    Author     : Laura
+    Document   : store.jsp
+    Created on : May 17, 2014, 7:42:22 PM
+    Author     : Daan
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <h:head>
-        <title>MyVibe - Store </title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet"/>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
-    </h:head>
-    <h:body>
-         <div class="container">
-            <jsp:include page="header.jsp"/>
-            <h1>Hello <%= session.getAttribute( "user" ) %>!</h1>
-                <p>Relative Path: <%= request.getServletPath() %></p>
-                
-                <% if (request.getParameter("success").equals("True")) { %>
-                    <div class="alert alert-success">
-                        <strong>Welcome</strong>
-                        You have been registered successfully!
-                    </div>
-                <% } %>
-                
-                <% if (request.getParameter("success").equals("login") ) { %>
-                    <div class="alert alert-success">
-                        <strong>Welcome Back</strong>
-                        You have been logged in successfully!
-                    </div>
-                <% } %>
-         </div>
-    </h:body>
+    </head>
+    <body>
+        <div class="container">
+            <jsp:include page="header.jsp"/> 
+                <c:forEach var="albumArtist" items="${AlbumArtistList}">
+                    <p>${albumArtist.key.albumName}</p>
+                    <p>${albumArtist.key.albumYear}</p>
+                    <p>${albumArtist.value.artistName}</p>
+                </c:forEach>
+        </div>        
+    </body>
 </html>

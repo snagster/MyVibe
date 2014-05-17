@@ -76,6 +76,15 @@ public class AlbumHelper {
             throw e;
         }
     } 
+    
+    
+    public List<Album> getAllAlbums(){
+        Transaction trans = session.beginTransaction();
+        Criteria criteria = session.createCriteria(Album.class);
+        List<Album> albums = criteria.list();
+        trans.commit();
+        return albums;
+    }
         
     public List<Album> getAllAlbums(Artist artist){
         Transaction trans = session.beginTransaction();
@@ -85,4 +94,6 @@ public class AlbumHelper {
         trans.commit();
         return albums;
     }
+    
+    
 }

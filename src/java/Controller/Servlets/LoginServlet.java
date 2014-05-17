@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                     Listener listener = (Listener) user;
                     session.setAttribute("Listener", listener);
                     request.setAttribute("ListenerName", listener.getListenerFullName());
-                    response.sendRedirect("listener/store.jsp?success=login");
+                    response.sendRedirect("listener/listenerHome.jsp?success=login");
                     }
                     if(user instanceof Admin){
                     Admin admin = new Admin();
