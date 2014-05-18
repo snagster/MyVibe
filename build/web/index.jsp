@@ -19,7 +19,7 @@
                 <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" style="margin-top: -10px;" href="#"><img src="img/MyVibe1.png" alt="Brand" height="42" width="42"/></a>
+                        <a class="navbar-brand" style="margin-top: -10px;" href="index.jsp"><img src="img/MyVibe1.png" alt="Brand" height="42" width="42"/></a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,9 +55,12 @@
                 <% } %>
                 <img src="img/MyVibe1.png" style="float:left; padding-right:75px;"/>
                 <h1>Follow the music!</h1>
-                <p>Hier komt nog een heel inspirerend tekstje dat de nietgeregistreerde gebruiker rechtstreeks
-                onze applicatie in lokt</p>
-                <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+                <p>U bent op zoek naar muziek? Maak dan snel een account aan bij MyVibe! Hier kan u genieten van tal van
+                exclusieve artiesten! Voor zeer aantrekkelijke prijzen bieden wij hun albums hier aan. U kan zelfs rechtstreeks
+                hier
+                op de website alle nummers beluisteren.</p>
+                <!-- <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p> -->
+                <br><br><br>
                 
                    <section class="login" style="float:right; margin-top:-75px;">
                         <div class="title">Sign up now!</div>
