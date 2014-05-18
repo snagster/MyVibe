@@ -17,12 +17,20 @@
     </head>
     <body>
         <div class="container">
+             
             <jsp:include page="header.jsp"/> 
                 <c:forEach var="albumArtist" items="${AlbumArtistList}">
+                    <div class="jumbotron" >
+                    <!--<hr style="border-bottom: 1px solid black">-->
+                    
                     <p>${albumArtist.key.albumName}</p>
-                    <p>${albumArtist.key.albumYear}</p>
                     <p>${albumArtist.value.artistName}</p>
+                    <p style="margin-bottom:-75px;">${albumArtist.key.albumYear}</p>
+                    <button type="submit" class="btn btn-default" style="position:relative; bottom: 20px; left: 225px; height:65px; width:150px;">Aankopen</button>
+                    </div>
+                    
                 </c:forEach>
+             
         </div>        
     </body>
 </html>
